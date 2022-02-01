@@ -1,4 +1,3 @@
-%%writefile app.py
 import streamlit as st
 import urllib.request
 from PIL import Image
