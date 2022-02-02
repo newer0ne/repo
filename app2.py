@@ -3,15 +3,18 @@ import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-    book = pd.read_excel(uploaded_file)
-    st.write(book)
+     bytes_data = uploaded_file.getvalue()
+     st.write(bytes_data)
+
+
     
-#df = pd.DataFrame({
-#  'first column': [1, 2, 3, 4],
-#  'second column': [10, 20, 30, 40],
-#  'third column': ['ебаный', 'рот', 'этого', 'казино'],
-#  'fourth column': ['Хова', 'ты', 'бредишь', 'чтоли']
-#})
+    
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40],
+  'third column': ['ебаный', 'рот', 'этого', 'казино'],
+  'fourth column': ['Хова', 'ты', 'бредишь', 'чтоли']
+})
 
 df
 
