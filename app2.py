@@ -8,7 +8,7 @@ import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     dataframe = pd.read_excel(uploaded_file)
+     dataframe = pd.read_excel(uploaded_file, engine='openpyxl')
      st.write(dataframe)
     
 df = pd.DataFrame({
