@@ -4,7 +4,7 @@ import io
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     dataframe = pd.read_excel(io='uploaded_file', 
+     dataframe = pd.ExcelFile.parse(io='uploaded_file', 
                              engine='openpyxl',
                              sheet_name='Sheet1',
                              skiprows=2,
