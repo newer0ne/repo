@@ -3,7 +3,12 @@ import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     dataframe = pd.read_csv(uploaded_file)  
+     dataframe = pd.read_csv(io=uploaded_file, 
+                             engine='openpylx',
+                             sheet_name='Sheet1',
+                             skiprows=3,
+                             usecols='A:D',
+                             nrows=10)  
      st.write(dataframe)
 
 df = pd.DataFrame({'first column': [1, 2, 3, 4], 
