@@ -8,7 +8,7 @@ if uploaded_file is not None:
                              engine='openpyxl',
                              sheet_name='Sheet1',
                              skiprows=2,
-                             usecols='C:K',
+                             #usecols='C:K',
                              #nrows=10,
                                    )  
      st.write(dataframe)
