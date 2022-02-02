@@ -13,7 +13,8 @@ excel_workbook = xlrd.open_workbook("https://github.com/newer0ne/repo/blob/main/
 #     df1 = df.drop([0, 1], axis=0)
 #     df1.columns = df1.iloc[0]
 #     df2 = df1.drop([2])
-     st.write(excel_workbook)
+#     st.write(excel_workbook)
+excel_workbook
 
 df3 = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
