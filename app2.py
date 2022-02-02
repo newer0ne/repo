@@ -5,11 +5,13 @@ Here's our first attempt at using data to create a table:
 
 import streamlit as st
 import pandas as pd
+import openpyxl
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     dataframe = pd.read_excel(uploaded_file, engine='openpyxl')
-     st.write(dataframe)
+     book = pd.read_excel(uploaded_file, read_only = true, engine='openpyxl')
+     sheet = book.active
+     st.write(sheet)
     
 df = pd.DataFrame({
   'first column': [1, 2, 3, 4],
