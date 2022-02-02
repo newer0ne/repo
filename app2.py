@@ -3,13 +3,12 @@
 Here's our first attempt at using data to create a table:
 """
 
-!pip install openpyxl
 import streamlit as st
 import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     book = pd.read_excel(uploaded_file)
+     book = pd.read_csv(uploaded_file)
      st.write(book)
     
 df = pd.DataFrame({
