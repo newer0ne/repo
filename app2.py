@@ -1,10 +1,3 @@
-streamlit==0.49.0
-numpy==1.16.4
-matploylib==3.1.1
-pandas==0.25.0
-scipy==1.2.0
-xlrd==1.2.0
-
 import streamlit as st
 import io
 import xlrd
