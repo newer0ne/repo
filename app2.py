@@ -3,9 +3,8 @@ import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     dataframe = pd.read_excel(uploaded_file)
-dataframe     
-#     st.write(dataframe)
+     dataframe = pd.read_excel(uploaded_file)  
+     st.write(dataframe)
 
 df = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
