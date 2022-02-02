@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 
 X = st.file_uploader("Загрузка Excel")
+print(X)
 if X is not None:
      excel_workbook = xlrd.open_workbook(X)
      excel_worksheet = excel_workbook.sheet_by_index(1) # Открывает первый лист, 1 - второй и т.д.
