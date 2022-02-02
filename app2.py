@@ -1,22 +1,17 @@
-"""
-# My first app
-Here's our first attempt at using data to create a table:
-"""
-
 import streamlit as st
 import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     book = pd.read_csv(uploaded_file)
+    book = pd.read_excel(uploaded_file)
      st.write(book)
     
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40],
-  'third column': ['ебаный', 'рот', 'этого', 'казино'],
-  'fourth column': ['Хова', 'ты', 'бредишь', 'чтоли']
-})
+#df = pd.DataFrame({
+#  'first column': [1, 2, 3, 4],
+#  'second column': [10, 20, 30, 40],
+#  'third column': ['ебаный', 'рот', 'этого', 'казино'],
+#  'fourth column': ['Хова', 'ты', 'бредишь', 'чтоли']
+#})
 
 df
 
