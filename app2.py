@@ -9,7 +9,8 @@ if uploaded_file is not None:
                              sheet_name='Sheet1',
                              skiprows=2,
                              usecols='C:K',
-                             nrows=10,)  
+                             #nrows=10,
+                                   )  
      st.write(dataframe)
 
 df = pd.DataFrame({'first column': [1, 2, 3, 4], 
