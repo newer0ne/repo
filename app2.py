@@ -5,7 +5,6 @@ Here's our first attempt at using data to create a table:
 
 import streamlit as st
 import pandas as pd
-import openpyxl as op
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
