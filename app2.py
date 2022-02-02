@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import xlrd
-import openpyxl
+
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
