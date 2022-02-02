@@ -3,8 +3,8 @@ import pandas as pd
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     bytes_data = uploaded_file.getvalue()
-     st.write(bytes_data)
+     string_data = stringio.read()
+     st.write(string_data)
 
 df = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
