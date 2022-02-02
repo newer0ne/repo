@@ -1,6 +1,6 @@
 import streamlit as st
 import io
-import 
+import xlrd
 import pandas as pd
 import numpy as np
 
