@@ -1,12 +1,12 @@
 import streamlit as st
 import io
-import xlrd as reader
+import 
 import pandas as pd
 import numpy as np
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     excel_workbook = reader.open_workbook(uploaded_file)
+     excel_workbook = xlrd.open_workbook(uploaded_file)
      excel_worksheet = excel_workbook.sheet_by_index(1) # Открывает первый лист, 1 - второй и т.д.
      df = pd.DataFrame(excel_worksheet)
      df = pd.DataFrame(excel_worksheet)
