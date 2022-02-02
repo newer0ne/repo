@@ -3,6 +3,7 @@
 Here's our first attempt at using data to create a table:
 """
 
+!pip install openpyxl
 import streamlit as st
 import pandas as pd
 
