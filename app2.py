@@ -1,11 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
      dataframe = pd.read_excel(uploaded_file)
-     dataframe = dataframe[('Примечание')]
      st.write(dataframe)
 
 df = pd.DataFrame({'first column': [1, 2, 3, 4], 
