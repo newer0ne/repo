@@ -1,23 +1,25 @@
 import streamlit as st
-import pandas as pd
 import io
+import xlrd
+import pandas as pd
+import numpy as np
 
 uploaded_file = st.file_uploader("Загрузка Excel")
 if uploaded_file is not None:
-     dataframe = pd.read_excel(uploaded_file, index_col=0, sheet_name='Sheet1')
-                             #engine='openpyxl'
-                             #sheet_name='Sheet1',
-                             #skiprows=2,
-                             #usecols='C:K',
-                             #nrows=10,
- 
-     st.write(dataframe)
+     excel_workbook = xlrd.open_workbook(uploaded_file)
+     excel_worksheet = excel_workbook.sheet_by_index(1) # Открывает первый лист, 1 - второй и т.д.
+     df = pd.DataFrame(excel_worksheet)
+     df = pd.DataFrame(excel_worksheet)
+     df1 = df.drop([0, 1], axis=0)
+     df1.columns = df1.iloc[0]
+     df2 = df1.drop([2])
+     st.write(df2)
 
-df = pd.DataFrame({'first column': [1, 2, 3, 4], 
+df3 = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
                    'third column': ['ебаный', 'рот', 'этого', 'казино'], 
                    'fourth column': ['Хова', 'ты', 'бредишь', 'чтоли']})
-df
+df3
 
 x = st.slider('x')  # 👈 this is a widget
 st.write('задач на работе', x, 'насколько мне похуй - ', x * x)
