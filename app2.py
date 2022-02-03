@@ -13,8 +13,8 @@ if X is not None:
      df1 = df.drop([0, 1], axis=0)
      df1.columns = df1.iloc[0]
      df2 = df1.drop([2])
-st.write(df2)
-
+#st.write(df2)
+df2
 
 df3 = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
