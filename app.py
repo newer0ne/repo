@@ -27,5 +27,5 @@ df3
 x = st.slider('x')  # 👈 this is a widget
 st.write('глупых задач на работе', x, 'насколько мне неинтересно - ', x**x)
 
-title = st.text_input('Введите код AKKU', 'Код')
-st.write('The current movie title is', title)
+title = st.text_input('Введите код AKKU')
+st.write('Ну и нахера ты ввел', title)
