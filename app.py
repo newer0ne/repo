@@ -9,7 +9,7 @@ import csv
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:   
      df = pd.read_excel(uploaded_file, index_col='KKS Code')
-     df1 = pd.DataFrame(df['KKS Code','Note'])
+     df1 = pd.DataFrame(df['KKS Code','Note']).values.ravel()
 #     df1.columns = df1.iloc[0]
 #     df2 = df1.drop([2])
 #     st.write(df2)
