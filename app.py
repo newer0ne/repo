@@ -15,8 +15,8 @@ if uploaded_file_1 is not None:
 uploaded_file_2 = st.file_uploader("Зафгрузка 2 файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file_2 is not None:   
      df2 = pd.read_excel(uploaded_file_2)
-     df22 = pd.DataFrame(df2, columns=['KKS Code','Note'])
-     st.write(df22)
+#     df22 = pd.DataFrame(df2, columns=['KKS Code','Note'])
+     st.write(df2)
 
 df3 = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
