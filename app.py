@@ -4,7 +4,6 @@ import numpy as np
 import openpyxl
 import io
 import os
-
 import csv
 
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
@@ -25,3 +24,6 @@ df3
 
 x = st.slider('x')  # 👈 this is a widget
 st.write('глупых задач на работе', x, 'насколько мне неинтересно - ', x**x)
+
+title = st.text_input('Введите код AKKU', 'Код')
+st.write('The current movie title is', title)
