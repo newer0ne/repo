@@ -9,13 +9,13 @@ import csv
 uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file_1 is not None:   
      df1 = pd.read_excel(uploaded_file_1)
-     df11 = pd.DataFrame(df, columns=['KKS Code','Note'])
+     df11 = pd.DataFrame(df1, columns=['KKS Code','Note'])
      st.write(df11)
 
 uploaded_file_2 = st.file_uploader("Зафгрузка 2 файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file_2 is not None:   
      df2 = pd.read_excel(uploaded_file_2)
-     df22 = pd.DataFrame(df, columns=['KKS Code','Note'])
+     df22 = pd.DataFrame(df2, columns=['KKS Code','Note'])
      st.write(df22)
 
 df3 = pd.DataFrame({'first column': [1, 2, 3, 4], 
