@@ -7,7 +7,7 @@ import xlrd
 from openpyxl import load_workbook
 import csv
 
-uploaded_file = st.file_uploader("Зафгрузка файла в формате xlsx", type='xlsx')
+uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:   
      book = load_workbook(uploaded_file)
      sheet = book.active
