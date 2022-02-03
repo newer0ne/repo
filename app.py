@@ -8,14 +8,15 @@ import csv
 
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:   
-     df = pd.read_excel(uploaded_file)
+     df1 = pd.read_excel(uploaded_file)
      df1 = pd.DataFrame(df, columns=['KKS Code','Note'])
-     df1.rename(columns={"Note": "AKKU"})
-#     df1.columns = df1.iloc[0]
-#     df2 = df1.drop([2])
-#     st.write(df2)
      st.write(df1)
 
+uploaded_file_2 = st.file_uploader("Зафгрузка 2 файла в формате .xlsx .xls .odf, .ods, .odt")
+if uploaded_file_2 is not None:   
+     df2 = pd.read_excel(uploaded_file_2)
+     df2 = pd.DataFrame(df, columns=['KKS Code','Note'])
+     st.write(df2)
 
 df3 = pd.DataFrame({'first column': [1, 2, 3, 4], 
                    'second column': [10, 20, 30, 40], 
