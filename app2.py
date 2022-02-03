@@ -5,10 +5,10 @@ import xlrd
 import pandas as pd
 import numpy as np
 
-X = st.file_uploader("Загрузка Excel")
-if X is not None:
-     excel_workbook = xlrd.open_workbook(X)
-     excel_worksheet = excel_workbook.sheet_by_index(1) # Открывает первый лист, 1 - второй и т.д.
+uploaded_file = st.file_uploader("Загрузка Excel")
+if uploaded_file is not None:
+     excel_workbook = xlrd.open_workbook(uploaded_file)
+     excel_worksheet = excel_workbook.sheet_by_index(1)          # Открывает первый лист, 1 - второй и т.д.
      df = pd.DataFrame(excel_worksheet)
      df1 = df.drop([0, 1], axis=0)
      df1.columns = df1.iloc[0]
@@ -23,4 +23,4 @@ df3 = pd.DataFrame({'first column': [1, 2, 3, 4],
 df3
 
 x = st.slider('x')  # 👈 this is a widget
-st.write('задач на работе', x, 'насколько мне похуй - ', x * x)
+st.write('глупых задач на работе', x, 'насколько мне неинтересно - ', x^x)
