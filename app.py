@@ -1,15 +1,15 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import openpyxl
 import io
 import os
-import xlrd
-from openpyxl import load_workbook
+
 import csv
 
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:   
-     df = pd.read_excel(uploaded_file)
+     df = pd.read_excel(uploaded_file, engine=xlrd)
 #     df1 = df.drop([0, 1], axis=0)
 #     df1.columns = df1.iloc[0]
 #     df2 = df1.drop([2])
