@@ -9,14 +9,14 @@ import csv
 uploaded_file = st.file_uploader("Зафгрузка файла в формате CSV", type='csv')
 if uploaded_file is not None:
      with open(uploaded_file, 'r', encoding='utf-8', errors='ignore') as infile, open(uploaded_file + 'final.csv', 'w') as outfile:
-     inputs = csv.reader(infile)
-     output = csv.writer(outfile)
+          inputs = csv.reader(infile)
+          output = csv.writer(outfile)
 
-     for index, row in enumerate(inputs):
-         # Create file with no header
-         if index == 0:
-             continue
-         output.writerow(row)
+          for index, row in enumerate(inputs):
+           # Create file with no header
+               if index == 0:
+                    continue
+               output.writerow(row)
      
      df = pd.read_csv(outfile)
      df1 = df.drop([0, 1], axis=0)
