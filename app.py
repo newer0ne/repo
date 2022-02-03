@@ -10,7 +10,7 @@ import csv
 uploaded_file = st.file_uploader("Зафгрузка файла в формате xlsx", type='xlsx')
 if uploaded_file is not None:   
      book = load_workbook(uploaded_file)
-     sheet = book.active()
+     sheet = book.active
 #     df = pd.read_excel(uploaded_file)
 #     df1 = df.drop([0, 1], axis=0)
 #     df1.columns = df1.iloc[0]
