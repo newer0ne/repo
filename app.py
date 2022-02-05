@@ -9,7 +9,7 @@ import csv
 uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file_1 is not None:   
      df1 = pd.read_excel(uploaded_file_1)
-     df11 = pd.DataFrame(df1, columns=['KKS Code','Note'])
+     df11 = pd.DataFrame(df1, columns=['Note', 'KKS Code'])
      st.write(df11)
 
 uploaded_file_2 = st.file_uploader("Зафгрузка 2 файла в формате .xlsx .xls .odf, .ods, .odt")
