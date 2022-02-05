@@ -6,7 +6,7 @@ import io
 import os
 import csv
 
-link = 'https://docs.google.com/spreadsheets/d/1peUU7SHhShwFGF2cdpclgr3xJOJii2OQ/edit?usp=sharing&ouid=112094221269107775969&rtpof=true&sd=true'
+link = 'https://github.com/newer0ne/repo/blob/main/book.xlsx'
 classifer = pd.read_excel(link)
 st.write(classifer)
 
