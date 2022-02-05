@@ -6,8 +6,8 @@ import io
 import os
 import csv
 
-link = 'https://docs.google.com/spreadsheets/d/1EEhBGtNGGFO6okTwj7nzDokZxk-gnfOY/edit?usp=sharing&ouid=112094221269107775969&rtpof=true&sd=true'
-classifer = pd.read_excel(link, sheet_name='Классификатор')
+link = 'https://docs.google.com/spreadsheets/d/1peUU7SHhShwFGF2cdpclgr3xJOJii2OQ/edit?usp=sharing&ouid=112094221269107775969&rtpof=true&sd=true'
+classifer = pd.read_excel(link)
 st.write(classifer)
 
 uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
