@@ -6,8 +6,7 @@ import io
 import os
 import csv
 
-link = '/blob/main/SL1.xlsx'
-classifer = pd.read_excel(link)
+classifer = pd.read_excel(https://github.com/newer0ne/repo/blob/main/SL1.xlsx)
 st.write(classifer)
 
 uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
