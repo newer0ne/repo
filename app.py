@@ -29,10 +29,5 @@ final = pd.merge(excel, tab, how = 'inner', on = ['Note'])
 st.write(final)
 
 @st.cache
- def convert_df(df):
-     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-     return df.to_csv().encode('utf-8')
-
-csv = convert_df(final)
-st.download_button(
-     label="Download data as CSV", data=csv, file_name='large_df.csv', mime='text/csv',)
+final.to_excel("output.xlsx")
+st.download_button(label="Download data as CSV", data=xlsx, file_name='output.xlsx', mime='text/xlsx',)
