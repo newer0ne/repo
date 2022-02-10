@@ -21,7 +21,7 @@ def run_query(query):
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
-tab.round({'mass': 3})
+tab.round({'mass': 2})
 #st.write(tab)
 
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
