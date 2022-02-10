@@ -6,9 +6,9 @@ import io
 import os
 import csv
 
-#link = 'https://github.com/newer0ne/repo/blob/main/book.xlsx'
-#classifer = pd.read_excel(link)
-#st.write(classifer)
+link = 'https://github.com/newer0ne/repo/blob/main/SL1.xlsx'
+classifer = pd.read_excel(link)
+st.write(classifer)
 
 uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file_1 is not None:   
