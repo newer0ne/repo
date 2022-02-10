@@ -29,5 +29,5 @@ final = pd.merge(excel, tab, how = 'inner', on = ['Note'])
 st.write(final)
 
 @st.cache
-final.to_excel('output.xlsx')
+output = final.to_excel('output.xlsx')
 st.download_button(label="Download data as CSV", data=xlsx, file_name='output.xlsx', mime='text/xlsx',)
