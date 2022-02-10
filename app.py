@@ -25,7 +25,7 @@ tab = pd.DataFrame(rows)
 
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:
-    A = pd.read_excel(uploaded_file)
+    A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
 #    excel_1 = pd.DataFrame(A, columns=['Note', 'KKS Code'])
     final = pd.merge(A, tab, how = 'inner', on = ['Note']) 
     st.write(final)
