@@ -23,7 +23,7 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
 #st.write(tab)
 
-uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
+uploaded_file = st.file_uploader("Зафгрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, tab, how = 'inner', on = ['Note']) 
@@ -42,4 +42,4 @@ if uploaded_file is not None:
         processed_data = output.getvalue()
         return processed_data
     df_xlsx = to_excel(final)
-    st.download_button(label='📥 Download Current Result', data=df_xlsx, file_name= 'df_test.xlsx')
+    st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
