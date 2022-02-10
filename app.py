@@ -26,7 +26,6 @@ tab = pd.DataFrame(rows)
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
-#    excel_1 = pd.DataFrame(A, columns=['Note', 'KKS Code'])
     final = pd.merge(A, tab, how = 'inner', on = ['Note']) 
     st.write(final)
     @st.cache
@@ -44,12 +43,3 @@ if uploaded_file is not None:
         return processed_data
     df_xlsx = to_excel(final)
     st.download_button(label='📥 Download Current Result', data=df_xlsx, file_name= 'df_test.xlsx')
-    
-    
-    
-    
-#    def convert_df(df):
-#        return df.to_excel()
-#        return df.to_csv().encode('utf-8')      # IMPORTANT: Cache the conversion to prevent computation on every rerun
-#    output = convert_df(final)
-#    st.download_button(label="Скачать без регистрации и СМС", data=output, file_name='output.xlsx')#, mime='text/xlsx')
