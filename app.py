@@ -6,8 +6,9 @@ import io
 import os
 import csv
 
-classifer = pd.read_excel(blob/main/SL1.xlsx)
-st.write(classifer)
+# .streamlit/secrets.toml
+
+public_gsheets_url = "https://docs.google.com/spreadsheets/d/1peUU7SHhShwFGF2cdpclgr3xJOJii2OQ/edit#gid=2119343756"
 
 uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file_1 is not None:   
