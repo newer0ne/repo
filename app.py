@@ -25,4 +25,5 @@ uploaded_file_1 = st.file_uploader("Зафгрузка файла в форма�
 if uploaded_file_1 is not None:   
      df = pd.read_excel(uploaded_file_1)
 #     df1 = pd.DataFrame(df1, columns=['Note', 'KKS Code'])
-     st.write(df)
+final = pd.merge(df, tab, how = 'inner', on = ['Note']) 
+st.write(final)
