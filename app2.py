@@ -15,7 +15,6 @@ if uploaded_file is not None:
     C = pd.read_excel(uploaded_file, sheet_name=2)
     D = pd.read_excel(uploaded_file, sheet_name=3)
     E = pd.read_excel(uploaded_file, sheet_name=4)
-    st.write(B)
     st.write(C)
     st.write(D)
     st.write(E)
