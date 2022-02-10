@@ -29,7 +29,7 @@ final = pd.merge(excel, tab, how = 'inner', on = ['Note'])
 st.write(final)
 
 @st.cache
- def convert_df(df):
+def convert_df(df):
      # IMPORTANT: Cache the conversion to prevent computation on every rerun
      return df.to_csv().encode('utf-8')
 
