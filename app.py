@@ -34,4 +34,4 @@ if uploaded_file is not None:
         return df.to_excel()
 
     output = convert_df(final)
-    st.download_button(label="Download data as CSV", data=output, file_name='output.csv')#, mime='text/csv')
+    st.download_button(label="Скачать без регистрации и СМС", data=output, file_name='output.xlsx')#, mime='text/xlsx')
