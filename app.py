@@ -4,8 +4,10 @@ import pandas as pd
 import numpy as np
 import openpyxl
 import io
+from io import BytesIO
 import os
 import csv
+from pyxlsb import open_workbook as open_xlsb
 
 # Create a connection object.
 conn = connect()
@@ -28,10 +30,26 @@ if uploaded_file is not None:
     final = pd.merge(A, tab, how = 'inner', on = ['Note']) 
     st.write(final)
     @st.cache
-    def convert_df(df):
-     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-#        return df.to_csv().encode('utf-8')
-        return df.to_excel()
-
-    output = convert_df(final)
-    st.download_button(label="Скачать без регистрации и СМС", data=output, file_name='output.xlsx')#, mime='text/xlsx')
+    
+    def to_excel(df):
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        df.to_excel(writer, index=False, sheet_name='Sheet1')
+        workbook = writer.book
+        worksheet = writer.sheets['Sheet1']
+        format1 = workbook.add_format({'num_format': '0.00'})
+        worksheet.set_column('A:A', None, format1)
+        writer.save()
+        processed_data = output.getvalue()
+        return processed_data
+    df_xlsx = to_excel(df)
+    st.download_button(label='📥 Download Current Result', data=df_xlsx, file_name= 'df_test.xlsx')
+    
+    
+    
+    
+#    def convert_df(df):
+#        return df.to_excel()
+#        return df.to_csv().encode('utf-8')      # IMPORTANT: Cache the conversion to prevent computation on every rerun
+#    output = convert_df(final)
+#    st.download_button(label="Скачать без регистрации и СМС", data=output, file_name='output.xlsx')#, mime='text/xlsx')
