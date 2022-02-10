@@ -11,11 +11,10 @@ from pyxlsb import open_workbook as open_xlsb
 
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:
-    A = pd.read_excel(uploaded_file, sheet_name=0)
     B = pd.read_excel(uploaded_file, sheet_name=1)
     C = pd.read_excel(uploaded_file, sheet_name=2)
     D = pd.read_excel(uploaded_file, sheet_name=3)
     E = pd.read_excel(uploaded_file, sheet_name=4)
-    st.write(A,B,C,D,E)
+    st.write(B, C, D, E)
 
     
