@@ -12,6 +12,6 @@ from pyxlsb import open_workbook as open_xlsb
 uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file)
-    st.write(final)
+    st.write(A)
 
     
