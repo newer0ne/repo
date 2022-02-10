@@ -21,11 +21,11 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
 #st.write(tab)
 
-uploaded_file_1 = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
-if uploaded_file_1 is not None:   
-     df = pd.read_excel(uploaded_file_1)
-#     df1 = pd.DataFrame(df1, columns=['Note', 'KKS Code'])
-final = pd.merge(df, tab, how = 'inner', on = ['Note']) 
+uploaded_file = st.file_uploader("Зафгрузка файла в формате .xlsx .xls .odf, .ods, .odt")
+if uploaded_file is not None:   
+     excel = pd.read_excel(uploaded_file)
+#     excel_1 = pd.DataFrame(excel, columns=['Note', 'KKS Code'])
+final = pd.merge(excel, tab, how = 'inner', on = ['Note']) 
 st.write(final)
 
 @st.cache
@@ -34,6 +34,5 @@ st.write(final)
      return df.to_csv().encode('utf-8')
 
 csv = convert_df(final)
-
 st.download_button(
      label="Download data as CSV", data=csv, file_name='large_df.csv', mime='text/csv',)
