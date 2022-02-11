@@ -27,7 +27,7 @@ uploaded_file = st.file_uploader("Зафгрузка ведомости опор
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, tab, how = 'inner', on = ['Note'])
-    show_final = final.drop(columns=['Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+    show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
     st.write(show_final)
     @st.cache
     
