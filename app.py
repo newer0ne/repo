@@ -26,8 +26,9 @@ tab = pd.DataFrame(rows)
 uploaded_file = st.file_uploader("Зафгрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
-    final = pd.merge(A, tab, how = 'inner', on = ['Note']) 
-    st.write(final)
+    final = pd.merge(A, tab, how = 'inner', on = ['Note'])
+    show_final = final.drop(columns=['Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+    st.write(show_final)
     @st.cache
     
     def to_excel(df):
