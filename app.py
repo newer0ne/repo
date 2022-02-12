@@ -54,5 +54,6 @@ uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name="Sheet1")
     final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
-#    show_final2 = final2.drop(columns=['Li type','Li diam class', 'Li temp class'])
     st.write(B)
+    @st.cache
+#    show_final2 = final2.drop(columns=['Li type','Li diam class', 'Li temp class'])
