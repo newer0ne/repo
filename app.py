@@ -47,6 +47,7 @@ if uploaded_file is not None:
     
 sheet_url2 = st.secrets["public_gsheets_url2"]
 rows2 = run_query(f'SELECT Dn, Fz_kN_kt2, mark_kt2 FROM "{sheet_url2}"')
+st.write(rows2)
 tab2 = pd.DataFrame(rows2)
 st.write(tab2)
 
