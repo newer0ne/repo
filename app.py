@@ -56,6 +56,3 @@ if uploaded_file2 is not None:
     final2 = pd.merge(A, tab, how = 'inner', on = ['Dn'])
     show_final2 = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
     st.write(show_final2)
-    @st.cache    
-    
-    
