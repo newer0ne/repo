@@ -44,3 +44,18 @@ if uploaded_file is not None:
         return processed_data
     df_xlsx = to_excel(final)
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
+    
+sheet_url2 = st.secrets["public_gsheets_url2"]
+rows2 = run_query(f'SELECT * FROM "{sheet_url2}"')
+tab2 = pd.DataFrame(rows2)
+#st.write(tab)
+
+uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
+if uploaded_file2 is not None:
+    B = pd.read_excel(uploaded_file2, sheet_name="Sheet1")
+    final2 = pd.merge(A, tab, how = 'inner', on = ['Dn'])
+    show_final2 = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+    st.write(show_final2)
+    @st.cache    
+    
+    
