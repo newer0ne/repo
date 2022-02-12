@@ -53,6 +53,6 @@ tab2 = pd.DataFrame(rows2)
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name="Sheet1")
-    final2 = pd.merge(A, tab, how = 'inner', on = ['Dn'])
+    final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
     show_final2 = final.drop(columns=['A, мм','B, мм', 'H, мм'])
     st.write(show_final2)
