@@ -46,7 +46,7 @@ if uploaded_file is not None:
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
     
 sheet_url2 = st.secrets["public_gsheets_url2"]
-rows2 = run_query(f'SELECT Dn, Fz_21, mark_21, Fz_31, mark_31 FROM "{sheet_url2}"')
+rows2 = run_query(f'SELECT * FROM "{sheet_url2}"')
 tab2 = pd.DataFrame(rows2)
 st.write(tab2)
 
