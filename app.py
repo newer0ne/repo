@@ -57,7 +57,7 @@ st.write(tab31)
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B = pd.merge(B, tab21, tab31, on = ['Dn']) \
+    B = pd.merge(B, tab21, on = ['Dn'])
 #    pd.merge(tab31, how = 'inner', on = ['Dn'])
 #    final22 = B[(B['Fz'] <= B['Fz_21']) | (B['Fz'] <= B['Fz_31'])]
 #    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
