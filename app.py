@@ -52,5 +52,5 @@ st.write(tab2)
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
-    X = pd.read_excel(uploaded_file2, sheet_name=0)
+    X = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     st.write(X)
