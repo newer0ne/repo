@@ -46,7 +46,7 @@ if uploaded_file is not None:
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
     
 sheet_url2 = st.secrets["public_gsheets_url2"]
-rows2 = run_query(f'SELECT * FROM "{sheet_url2}"')
+rows2 = run_query(f'SELECT Dn, Fz_kN_kt2, mark_kt2 FROM "{sheet_url2}"')
 tab2 = pd.DataFrame(rows2)
 st.write(tab2)
 
@@ -54,5 +54,5 @@ uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
-    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
-    st.write(show_final2)
+#    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
+    st.write(final2)
