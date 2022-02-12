@@ -45,15 +45,21 @@ if uploaded_file is not None:
     df_xlsx = to_excel(final)
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
     
-sheet_url2 = st.secrets["public_gsheets_url2"]
-rows2 = run_query(f'SELECT Dn, Fz_21, mark_21, Fz_31, mark_31 FROM "{sheet_url2}"')
-tab2 = pd.DataFrame(rows2)
-st.write(tab2)
+sheet_url21 = st.secrets["public_gsheets_url21"]
+rows21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url21}"')
+tab21 = pd.DataFrame(rows21)
+st.write(tab21)
+sheet_url31 = st.secrets["public_gsheets_url31"]
+rows31 = run_query(f'SELECT Dn, Fz_31, mark_31 FROM "{sheet_url31}"')
+tab31 = pd.DataFrame(rows31)
+st.write(tab31)
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
-    final22 = final2[(final2['Fz'] <= final2['Fz_21']) | (final2['Fz'] <= final2['Fz_31'])]
+    B = \
+    pd.merge(tab21, how = 'inner', on = ['Dn']) \
+    pd.merge(tab31, how = 'inner', on = ['Dn']) \
+#    final22 = B[(B['Fz'] <= B['Fz_21']) | (B['Fz'] <= B['Fz_31'])]
 #    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
-    st.write(final22)
+    st.write(B)
