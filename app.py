@@ -52,7 +52,6 @@ st.write(tab2)
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
-    B = pd.read_excel(uploaded_file2, sheet_name="Sheet1")
-    final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
-    st.write(B)
-    @st.cache
+    X = pd.read_excel(uploaded_file2, sheet_name="Sheet1")
+    st.write(X)
+#    final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
