@@ -56,4 +56,3 @@ if uploaded_file2 is not None:
     final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
     st.write(B)
     @st.cache
-#    show_final2 = final2.drop(columns=['Li type','Li diam class', 'Li temp class'])
