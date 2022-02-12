@@ -54,5 +54,5 @@ uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name="Sheet1")
     final2 = pd.merge(A, tab, how = 'inner', on = ['Dn'])
-    show_final2 = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+    show_final2 = final.drop(columns=['A, мм','B, мм', 'H, мм'])
     st.write(show_final2)
