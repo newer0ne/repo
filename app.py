@@ -48,7 +48,7 @@ if uploaded_file is not None:
 sheet_url2 = st.secrets["public_gsheets_url2"]
 rows2 = run_query(f'SELECT * FROM "{sheet_url2}"')
 tab2 = pd.DataFrame(rows2)
-#st.write(tab)
+st.write(tab2)
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
