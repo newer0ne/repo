@@ -54,6 +54,6 @@ uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     final2 = pd.merge(B, tab2, how = 'inner', on = ['Dn'])
-    final22 = final2[(final2['Fz'] <= final2['Fz_kN_kt2'])]
+    final22 = final2[(final2['Fz'] <= final2['Fz_21']) | (final2['Fz'] <= final2['Fz_31'])]
 #    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
     st.write(final22)
