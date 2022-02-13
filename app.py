@@ -72,7 +72,7 @@ st.write(tab_Li_kt21_drop)
 #X = tab_Li_kt2[tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_31']]
 #st.write(X)
 
-uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
-if uploaded_file2 is not None:
-    B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    st.write(B)
+#uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
+#if uploaded_file2 is not None:
+#    B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
+#    st.write(B)
