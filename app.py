@@ -68,7 +68,7 @@ tab_Li_kt21.dropna(subset=['Fz'], inplace=True)
 tab_Li_kt21 = tab_Li_kt21[tab_Li_kt21['Fz'] <= tab_Li_kt21['Fz_21']]
 #st.write(tab_Li_kt21)
 #st.write(len(tab_Li_kt21))
-tab_Li_kt21_drop = tab_Li_kt21[['Lisega','mark_21', 'Fz_31']]
+tab_Li_kt21_drop = tab_Li_kt21[['Lisega','mark_21','Fz_21']]
 
 #st.write('Таблица соответствия опор Lisega 49 - kt2 31 type')
 tab_Li_kt31 = pd.merge(tab_Li, tab_31, how = 'inner', on = ['Dn'])
