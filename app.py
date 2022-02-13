@@ -64,7 +64,7 @@ if tab_Li_kt2['Fz'] < tab_Li_kt2['Fz_21']:
     tab_Li_kt2['mark'] == tab_Li_kt2['mark_21']
 else:
     tab_Li_kt2['mark'] == 0
-#tab_Li_kt2['mark'] = tab_Li_kt2['Fz'] < tab_Li_kt2['Fz_21']
+#tab_Li_kt2['mark'] = tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_21']
 st.write(tab_Li_kt2)
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
