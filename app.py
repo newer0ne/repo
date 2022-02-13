@@ -53,6 +53,7 @@ tab_Li = tab_Li.astype({'Dn': float, 'Lisega': str, 'Fz': float})
 sheet_url_t21 = st.secrets["public_gsheets_url_t21"]
 rows_21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url_t21}"')
 tab_21 = pd.DataFrame(rows_21)
+tab_21 = tab_21.astype({'Dn': float, 'mark_21': str, 'Fz_21': float})
 #st.write(tab_21)
 sheet_url_t31 = st.secrets["public_gsheets_url_t31"]
 rows_31 = run_query(f'SELECT Dn, Fz_31, mark_31 FROM "{sheet_url_t31}"')
