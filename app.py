@@ -85,7 +85,7 @@ st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
 
 tab_work = tab_Li_fin[['Lisega','mark_21', 'mark_31']]
-tab_work = tab_work.replace(np.nan, 'нет')
+tab_work = tab_work.replace(np.nan, '-')
 
 uploaded_file2 = st.file_uploader("Загрузка тестовая для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
