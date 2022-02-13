@@ -48,7 +48,7 @@ if uploaded_file is not None:
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT Dn, Lisega, Fz FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
-tab_Li = tab_Li.astype({'Dn': float, 'Lisega': str, 'Fz': int})
+tab_Li = tab_Li.astype({'Dn': float, 'Lisega': str, 'Fz': float})
 #st.write(tab_Li)
 sheet_url_t21 = st.secrets["public_gsheets_url_t21"]
 rows_21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url_t21}"')
