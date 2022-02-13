@@ -92,15 +92,9 @@ tab_Li_fin = pd.merge(tab_Li, tab_Li_kt31_drop, how = 'outer', on = ['Lisega'])
 st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
 
-tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt21_drop, how = 'inner', on = ['Lisega'])
+tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt21_drop, how = 'outer', on = ['Lisega'])
 st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
-
-#tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
-
-#st.write(tab_Li_kt2)
-#X = tab_Li_kt2[tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_31']]
-#st.write(X)
 
 #uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 #if uploaded_file2 is not None:
