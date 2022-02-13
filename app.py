@@ -60,10 +60,6 @@ if uploaded_file2 is not None:
     B = pd.merge(B, tab21, on = ['Dn'])
     B = pd.merge(B, tab31, on = ['Dn'])
     B.insert(1, "mark", 'none')
-    if B['Fz_21'] >= B['Fz']:
-        return B['mark'] == 21
-    else:
-        return B['mark'] == none
 #    final22 = B[(B['Fz'] <= B['Fz_21']) | (B['Fz'] <= B['Fz_31'])]
 #    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
     st.write(B)
