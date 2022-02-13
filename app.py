@@ -50,41 +50,29 @@ rows_Li = run_query(f'SELECT Dn, Lisega, Fz FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
 tab_Li = tab_Li.astype({'Dn': float, 'Lisega': str, 'Fz': float})
 #st.write(tab_Li)
+
 sheet_url_t21 = st.secrets["public_gsheets_url_t21"]
 rows_21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url_t21}"')
 tab_21 = pd.DataFrame(rows_21)
 tab_21 = tab_21.astype({'Dn': float, 'mark_21': str, 'Fz_21': float})
 #st.write(tab_21)
+
 sheet_url_t31 = st.secrets["public_gsheets_url_t31"]
 rows_31 = run_query(f'SELECT Dn, Fz_31, mark_31 FROM "{sheet_url_t31}"')
 tab_31 = pd.DataFrame(rows_31)
 #st.write(tab_31)
 
-tab_Li_kt2 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
-tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
-tab_Li_kt2.dropna(subset=['Fz'], inplace=True)
-st.write(tab_Li_kt2)
-for Fz, Fz_21 in tab_Li, tab_21:
-    if tab_Li['Fz'] < tab_21['Fz_21']:
-        tab_Li_kt2['mark'] == 'yepp'
-    else:
-        tab_Li_kt2['mark'] == 'fuck'
-st.write(tab_Li_kt2)
+tab_Li_kt21 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
+tab_Li_kt21.dropna(subset=['Fz'], inplace=True)
+tab_Li_kt21.drop('Dn', 'Fz', 'Fz_21')
+st.write(tab_Li_kt21)
+#tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
+
+#st.write(tab_Li_kt2)
 #X = tab_Li_kt2[tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_31']]
 #st.write(X)
-
-#for Fz in tab_Li_kt2:
-#    if Fz <= Fz_21:
-#        tab_Li_kt2['mark'] = tab_Li_kt2['mark_21']
-#tab_Li_kt2['mark'] = tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_21']
-
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     st.write(B)
-#    B = pd.merge(B, tab21, on = ['Dn'])
-#    B = pd.merge(B, tab31, on = ['Dn'])
-#    B.insert(1, "mark", 'none')
-#    final22 = B[(B['Fz'] <= B['Fz_21']) | (B['Fz'] <= B['Fz_31'])]
-#    show_final2 = final2.drop(columns=['A','B', 'H', 'Fx_kN', 'Fy_kN', 'mass', 'mass_list'])
