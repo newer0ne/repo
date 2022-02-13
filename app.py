@@ -63,8 +63,8 @@ tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
 tab_Li_kt2.dropna(subset=['Fz'], inplace=True)
 tab_Li_kt2['mark'] = np.nan
 st.write(tab_Li_kt2)
-tab_Li_kt2 = tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_31']
-st.write(tab_Li_kt2)
+tab_Li_kt21 = tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_31']
+st.write(tab_Li_kt21)
 
 #for Fz in tab_Li_kt2:
 #    if Fz <= Fz_21:
