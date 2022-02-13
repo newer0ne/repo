@@ -84,8 +84,12 @@ tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt31_drop, how = 'outer', on = ['Lisega
 st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
 
-uploaded_file2 = st.file_uploader("Загрузка тестовая для Lisega 49 type")
+tab_work = tab_Li_fin[['Lisega','mark_21', 'mark_31']]
+
+uploaded_file2 = st.file_uploader("Загрузка тестовая для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B1 = B['Lisega']
+    B = pd.merge(B, tab_work, how = 'outer', on = ['Lisega'])
+    st.write(B)
+    
     st.write(B1)
