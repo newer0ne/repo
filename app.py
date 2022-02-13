@@ -77,9 +77,16 @@ st.write(len(tab_Li_kt21_drop))
 
 tab_Li_kt31 = pd.merge(tab_Li, tab_31, how = 'inner', on = ['Dn'])
 tab_Li_kt31.dropna(subset=['Fz'], inplace=True)
+st.write(tab_Li_kt31)
+st.write(len(tab_Li_kt31))
+
 tab_Li_kt31 = tab_Li_kt31[tab_Li_kt31['Fz'] <= tab_Li_kt31['Fz_31']]
+st.write(tab_Li_kt31)
+st.write(len(tab_Li_kt31))
+
 tab_Li_kt31_drop = tab_Li_kt31[['Lisega','mark_31']]
 st.write(tab_Li_kt31_drop)
+st.write(len(tab_Li_kt31_drop))
 
 tab_Li_fin = pd.merge(tab_Li, tab_Li_kt31_drop, how = 'inner', on = ['Lisega'])
 tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt21_drop, how = 'inner', on = ['Lisega'])
