@@ -26,7 +26,7 @@ tab = pd.DataFrame(rows)
 uploaded_file = st.file_uploader("Зафгрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
-    final = pd.merge(A, tab, how = 'inner', on = ['Note'])
+    final = pd.merge(A, tab, how = 'outer', on = ['Note'])
     show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
     st.write(show_final)
     @st.cache
@@ -84,7 +84,7 @@ tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt31_drop, how = 'outer', on = ['Lisega
 st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
 
-#uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
-#if uploaded_file2 is not None:
-#    B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-#    st.write(B)
+uploaded_file2 = st.file_uploader("Загрузка тестовая для Lisega 49 type")
+if uploaded_file2 is not None:
+    B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
+    st.write(B)
