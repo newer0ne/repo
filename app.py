@@ -74,6 +74,10 @@ tab_Li_kt31 = tab_Li_kt31[tab_Li_kt31['Fz'] <= tab_Li_kt31['Fz_31']]
 tab_Li_kt31_drop = tab_Li_kt31[['Lisega','mark_31']]
 st.write(tab_Li_kt31_drop)
 
+tab_Li_fin = pd.merge(tab_Li, tab_Li_kt21_drop, how = 'inner', on = ['Lisega'])
+tab_Li_fin = pd.merge(tab_Li, tab_Li_kt31_drop, how = 'inner', on = ['Lisega'])
+st.write(tab_Li_fin)
+
 #tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
 
 #st.write(tab_Li_kt2)
