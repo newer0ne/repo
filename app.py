@@ -45,7 +45,7 @@ if uploaded_file is not None:
     df_xlsx = to_excel(final)
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
     
-sheet_url_t21 = st.secrets["public_gsheets_url_21"]
+sheet_url_t21 = st.secrets["public_gsheets_url_t21"]
 rows21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url_t21}"')
 tab21 = pd.DataFrame(rows21)
 st.write(tab21)
