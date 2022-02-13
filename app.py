@@ -88,7 +88,7 @@ tab_Li_kt31_drop = tab_Li_kt31[['Lisega','mark_31']]
 st.write(tab_Li_kt31_drop)
 st.write(len(tab_Li_kt31_drop))
 
-tab_Li_fin = pd.merge(tab_Li, tab_Li_kt31_drop, how = 'inner', on = ['Lisega'])
+tab_Li_fin = pd.merge(tab_Li, tab_Li_kt31_drop, how = 'outer', on = ['Lisega'])
 st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
 
