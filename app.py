@@ -48,18 +48,20 @@ if uploaded_file is not None:
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT Dn, Lisega, Fz FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
-st.write(tab_Li)
+#st.write(tab_Li)
 sheet_url_t21 = st.secrets["public_gsheets_url_t21"]
 rows_21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url_t21}"')
 tab_21 = pd.DataFrame(rows_21)
-st.write(tab_21)
+#st.write(tab_21)
 sheet_url_t31 = st.secrets["public_gsheets_url_t31"]
 rows_31 = run_query(f'SELECT Dn, Fz_31, mark_31 FROM "{sheet_url_t31}"')
 tab_31 = pd.DataFrame(rows_31)
-st.write(tab_31)
+#st.write(tab_31)
 
 tab_Li_kt2 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
 tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
+if tab_Li_kt2['Fz'] < tab_Li_kt2['Fz_21']:
+    return tab_Li_kt2['mark'] == tab_Li_kt2['mark_21']
 st.write(tab_Li_kt2)
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
