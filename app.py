@@ -87,5 +87,5 @@ st.write(len(tab_Li_fin))
 uploaded_file2 = st.file_uploader("Загрузка тестовая для Lisega 49 type")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B1 = B1['Lisega']
-    st.write(B)
+    B1 = B['Lisega']
+    st.write(B1)
