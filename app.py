@@ -63,7 +63,7 @@ tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
 tab_Li_kt2.dropna(subset=['Fz'], inplace=True)
 st.write(tab_Li_kt2)
 for Fz_31 in tab_Li_kt2:
-    if tab_Li_kt2['Fz_31'] <= 100:
+    if Fz_31 <= 100:
         tab_Li_kt2['mark'] == 'yepp'
     else:
         tab_Li_kt2['mark'] == 'fuck'
