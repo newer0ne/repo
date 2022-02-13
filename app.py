@@ -57,25 +57,28 @@ rows_21 = run_query(f'SELECT Dn, Fz_21, mark_21 FROM "{sheet_url_t21}"')
 tab_21 = pd.DataFrame(rows_21)
 tab_21 = tab_21.astype({'Dn': float, 'mark_21': str, 'Fz_21': float})
 
-st.write('Загружаем таблицу опор kt2 31 type')
+# Загружаем таблицу опор kt2 31 type
 sheet_url_t31 = st.secrets["public_gsheets_url_t31"]
 rows_31 = run_query(f'SELECT Dn, Fz_31, mark_31 FROM "{sheet_url_t31}"')
 tab_31 = pd.DataFrame(rows_31)
 
+#st.write('Таблица соответствия опор Lisega 49 - kt2 21 type')
 tab_Li_kt21 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
 tab_Li_kt21.dropna(subset=['Fz'], inplace=True)
 tab_Li_kt21 = tab_Li_kt21[tab_Li_kt21['Fz'] <= tab_Li_kt21['Fz_21']]
-st.write(tab_Li_kt21)
-st.write(len(tab_Li_kt21))
+#st.write(tab_Li_kt21)
+#st.write(len(tab_Li_kt21))
 tab_Li_kt21_drop = tab_Li_kt21[['Lisega','mark_21']]
 
+#st.write('Таблица соответствия опор Lisega 49 - kt2 31 type')
 tab_Li_kt31 = pd.merge(tab_Li, tab_31, how = 'inner', on = ['Dn'])
 tab_Li_kt31.dropna(subset=['Fz'], inplace=True)
 tab_Li_kt31 = tab_Li_kt31[tab_Li_kt31['Fz'] <= tab_Li_kt31['Fz_31']]
-st.write(tab_Li_kt31)
-st.write(len(tab_Li_kt31))
+#st.write(tab_Li_kt31)
+#st.write(len(tab_Li_kt31))
 tab_Li_kt31_drop = tab_Li_kt31[['Lisega','mark_31']]
 
+st.write('Таблица соответствия опор Lisega 49 - kt2 31 type')
 tab_Li_fin = pd.merge(tab_Li, tab_Li_kt31_drop, how = 'outer', on = ['Lisega'])
 tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt21_drop, how = 'outer', on = ['Lisega'])
 st.write(tab_Li_fin)
