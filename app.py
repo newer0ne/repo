@@ -46,7 +46,7 @@ if uploaded_file is not None:
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
 
 Li = st.secrets["public_gsheets_url_Lisega"]
-rows_Li = run_query(f'SELECT * FROM "{Li}"')
+rows_Li = run_query(f'SELECT Dn, Lisega, Fz FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
 st.write(tab_Li)
 sheet_url_t21 = st.secrets["public_gsheets_url_t21"]
