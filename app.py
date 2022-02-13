@@ -81,14 +81,28 @@ tab_Li_kt31_drop = tab_Li_kt31[['Lisega','mark_31', 'Fz_31']]
 st.write('Таблица соответствия опор Lisega 49 - kt2 21, 31 type')
 tab_Li_fin = pd.merge(tab_Li, tab_Li_kt21_drop, how = 'outer', on = ['Lisega'])
 tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt31_drop, how = 'outer', on = ['Lisega'])
-st.write(tab_Li_fin)
-st.write(len(tab_Li_fin))
+#st.write(tab_Li_fin)
+#st.write(len(tab_Li_fin))
 
 tab_work = tab_Li_fin[['Lisega','mark_21', 'mark_31']]
 tab_work = tab_work.replace(np.nan, '-')
 
-uploaded_file2 = st.file_uploader("Загрузка тестовая для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
+uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B = pd.merge(B, tab_work, how = 'outer', on = ['Lisega'])
     st.write(B)
+
+    def to_excel(df):
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        df.to_excel(writer, index=False, sheet_name='Sheet1')
+        workbook = writer.book
+        worksheet = writer.sheets['Sheet1']
+        format1 = workbook.add_format({'num_format': '0.00'})
+        worksheet.set_column('A:A', None, format1)
+        writer.save()
+        processed_data = output.getvalue()
+        return processed_data
+    df_xlsx = to_excel(B)
+    st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор Lisega 49.xlsx')
