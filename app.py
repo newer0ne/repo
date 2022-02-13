@@ -64,7 +64,7 @@ tab_31 = pd.DataFrame(rows_31)
 
 tab_Li_kt21 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
 tab_Li_kt21.dropna(subset=['Fz'], inplace=True)
-tab_Li_kt21_drop = tab_Li_kt21[('Lisega', 'mark_21')]
+tab_Li_kt21_drop = tab_Li_kt21[tab_Li_kt21['Lisega'],  tab_Li_kt21['mark_21']]
 st.write(tab_Li_kt21_drop)
 
 #tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
