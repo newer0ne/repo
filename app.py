@@ -60,6 +60,7 @@ tab_31 = pd.DataFrame(rows_31)
 
 tab_Li_kt2 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
 tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
+tab_Li_kt2 = tab_Li_kt2['Fz'] is not null
 if tab_Li_kt2['Fz'] < tab_Li_kt2['Fz_21']:
     tab_Li_kt2['mark'] == tab_Li_kt2['mark_21']
 else:
