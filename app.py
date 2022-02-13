@@ -81,7 +81,6 @@ tab_Li_kt31_drop = tab_Li_kt31[['Lisega','mark_31', 'Fz_31']]
 st.write('Таблица соответствия опор Lisega 49 - kt2 21, 31 type')
 tab_Li_fin = pd.merge(tab_Li, tab_Li_kt21_drop, how = 'outer', on = ['Lisega'])
 tab_Li_fin = pd.merge(tab_Li_fin, tab_Li_kt31_drop, how = 'outer', on = ['Lisega'])
-tab_Li_fin['kt2'] = tab_Li_fin['mark_21'] + ' ' + tab_Li_fin['mark_31']
 st.write(tab_Li_fin)
 st.write(len(tab_Li_fin))
 
