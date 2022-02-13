@@ -67,7 +67,7 @@ st.write(tab_Li_kt2)
 #    if Fz <= Fz_21:
 #        tab_Li_kt2['mark'] = tab_Li_kt2['mark_21']
 #tab_Li_kt2['mark'] = tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_21']
-st.write(print(tab_Li_kt2.dtypes))
+st.write(print(tab_Li_kt2['Fz'].dtype))
 
 uploaded_file2 = st.file_uploader("Зафгрузка тестовая")
 if uploaded_file2 is not None:
