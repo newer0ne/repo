@@ -64,7 +64,7 @@ tab_Li_kt2 = pd.merge(tab_Li, tab_21, how = 'inner', on = ['Dn'])
 tab_Li_kt2 = pd.merge(tab_Li_kt2, tab_31, how = 'inner', on = ['Dn'])
 tab_Li_kt2.dropna(subset=['Fz'], inplace=True)
 st.write(tab_Li_kt2)
-for Fz, Fz_21 in tab_Li, tab_21
+for Fz, Fz_21 in tab_Li, tab_21:
     if tab_Li['Fz'] < tab_21['Fz_21']:
         tab_Li_kt2['mark'] == 'yepp'
     else:
