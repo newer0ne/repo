@@ -65,8 +65,8 @@ tab_Li_kt2['mark'] = np.nan
 st.write(tab_Li_kt2)
 if tab_Li_kt2['Fz'] <= 100:
     tab_Li_kt2['mark'] == 'yepp'
-    else:
-        tab_Li_kt2['mark'] == 'fuck'
+else:
+    tab_Li_kt2['mark'] == 'fuck'
 st.write(tab_Li_kt2)
 #X = tab_Li_kt2[tab_Li_kt2['Fz'] <= tab_Li_kt2['Fz_31']]
 #st.write(X)
