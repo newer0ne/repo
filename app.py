@@ -55,7 +55,7 @@ tab_Li = tab_Li.astype({'Lisega': str})
 uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B = pd.merge(B, tab_Li, how = 'outer', on = ['Lisega'])
+    B = pd.merge(B, tab_Li, how = 'inner', on = ['Lisega'])
     st.write(B)
 
     def to_excel(df):
