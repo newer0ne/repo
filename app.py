@@ -63,7 +63,7 @@ tab_Li = pd.DataFrame(rows_Li)
 
 uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
-    input_name = uploaded_file2.tolist()
+    uploaded_file2.tolist()
     st.write(input_name)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
