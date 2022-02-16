@@ -85,7 +85,7 @@ if uploaded_file2 is not None:
         st.write('Мы тоже хотим чтобы это работало')
         st.balloons()
 
-st.sidebar.write('Куканчленнис')
+st.sidebar.title('Модуль проверки базы данных по атомной станции')
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
     ("Курсая АЭС", "АЭС АККУЮ", "АЭС Хинхакиви")
