@@ -89,7 +89,7 @@ st.sidebar.title('Модуль проверки базы данных по ат�
 stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
 st.write(stations)
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
-st.sidebar.st.write(add_selectbox)
+st.sidebar.write(add_selectbox)
 if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС АККУЮ":
         st.write(tab)
