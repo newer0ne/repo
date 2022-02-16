@@ -91,8 +91,6 @@ add_selectbox = st.sidebar.selectbox("Выберите базу данных д�
 if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС АККУЮ":
         st.sidebar.write(tab)
-        title = st.sidebar.text_input()
-        st.sidebar.write('The current movie title is', title)
     if add_selectbox == "Курская АЭС":
         st.sidebar.write(tab_Li)
     if add_selectbox == "АЭС Хинхакиви":
