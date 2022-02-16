@@ -32,7 +32,7 @@ sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
 
-uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Нужно удалить первые два скрытых столбца. Таблица должна начинаться со столбца "Код KKS")")
+uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Нужно удалить первые два скрытых столбца. Таблица должна начинаться со столбца **Код KKS**)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, tab, how = 'outer', on = ['Note'])
