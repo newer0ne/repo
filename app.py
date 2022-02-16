@@ -88,5 +88,5 @@ if uploaded_file2 is not None:
 st.sidebar.write('Куканчленнис')
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
+    ("Курсая АЭС", "АЭС АККУЮ", "АЭС Хинхакиви")
 )
