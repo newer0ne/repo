@@ -104,7 +104,7 @@ if uploaded_file2 is not None:
         
         
 st.sidebar.header('Модуль проверки баз данных по АЭС')
-stations = ["ЛАЭС-2 - АККУЮ","Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
+stations = ["ЛАЭС-2 - АККУЮ","Курская АЭС", "АЭС АККУЮ", "АЭС Ханхикиви"]
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
 if st.sidebar.button('Просмотреть'):
     if add_selectbox == "ЛАЭС-2 - АККУЮ":
@@ -122,6 +122,6 @@ if st.sidebar.button('Просмотреть'):
         st.header('База данных по Курской АЭС')
         st.write('**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
         st.write(tab_Li)
-    if add_selectbox == "АЭС Хинхакиви":
+    if add_selectbox == "АЭС Ханхикиви":
         st.header('Оптимистичный выбор :)')
         st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
