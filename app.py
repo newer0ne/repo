@@ -87,6 +87,6 @@ if uploaded_file2 is not None:
 
 st.sidebar.title('Модуль проверки базы данных по атомной станции')
 add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
+    "Выберите базу данных для обзора:",
     ("Курсая АЭС", "АЭС АККУЮ", "АЭС Хинхакиви")
 )
