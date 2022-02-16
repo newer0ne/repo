@@ -90,7 +90,7 @@ stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхаки
 st.write(stations)
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
 st.sidebar.st.write(add_selectbox)
-st.sidebar.if st.button('Просмотреть'):
+if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС АККУЮ":
         st.write(tab)
     if add_selectbox == "Курская АЭС":
