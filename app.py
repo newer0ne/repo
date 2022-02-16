@@ -85,6 +85,7 @@ if uploaded_file2 is not None:
         st.write('Мы тоже хотим чтобы это работало')
         st.balloons()
 
+st.sidebar.write('Куканчленнис')
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
     ("Email", "Home phone", "Mobile phone")
