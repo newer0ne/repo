@@ -31,6 +31,7 @@ if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, tab, how = 'outer', on = ['Note'])
     show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+    st.write('Соответствие опор запрашиваемых в ведомости ОПС:)
     st.write(show_final)
     @st.cache
     
