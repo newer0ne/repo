@@ -57,6 +57,7 @@ if uploaded_file2 is not None:
     B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write(B)
     C = B['Lisega'], B['№ п/п']
+    st.write(C)
     D = C.groupby(['Lisega']).count()
     st.write(D)
 
