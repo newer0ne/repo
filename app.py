@@ -86,7 +86,5 @@ if uploaded_file2 is not None:
         st.balloons()
 
 st.sidebar.title('Модуль проверки базы данных по атомной станции')
-add_selectbox = st.sidebar.selectbox(
-    "Выберите базу данных для обзора:",
-    ("Курсая АЭС", "АЭС АККУЮ", "АЭС Хинхакиви")
-)
+add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:",  ("Курсая АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"))
+
