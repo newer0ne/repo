@@ -51,10 +51,12 @@ Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
 
-uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
+uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
+    st.write(B)
+    B.groupby(['Lisega'])
     st.write(B)
 
     def to_excel(df):
@@ -69,4 +71,4 @@ if uploaded_file2 is not None:
         processed_data = output.getvalue()
         return processed_data
     df_xlsx = to_excel(B)
-    st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор Lisega 49.xlsx')
+    st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор на Курскую АЭС.xlsx')
