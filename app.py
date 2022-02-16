@@ -101,26 +101,22 @@ if uploaded_file2 is not None:
         
         
         
-st.sidebar.header('Модуль проверки базы данных по атомной станции')
-stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
+st.sidebar.header('Модуль проверки базы данных по АЭС')
+stations = ["ЛАЭС-2 - АККУЮ","Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
 if st.sidebar.button('Просмотреть'):
+    if add_selectbox == "ЛАЭС-2 - АККУЮ":
+        st.header('Таблица соответствия ЛАЭС-2 - АККУЮ')
+        Li2 = st.secrets["public_gsheets_url_Lisega2"]
+        rows_Li2 = run_query(f'SELECT * FROM "{Li2}"')
+        tab_Li2 = pd.DataFrame(rows_Li2)
+        st.write(tab_Li2)
     if add_selectbox == "АЭС АККУЮ":
+        st.header('База данных по АЭС АККУЮ')
         st.write(tab)
     if add_selectbox == "Курская АЭС":
+        st.header('База данных по Курской АЭС')
         st.write(tab_Li)
     if add_selectbox == "АЭС Хинхакиви":
-        st.write('Оптимистичный выбор :)')
+        st.header('Оптимистичный выбор :)')
         st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
-
-        
-        
-        
-        
-        
-st.subheader('Таблица соответствия ЛАЭС-2 - АККУЮ')
-    # Загружаем таблицу опор Lisega
-Li2 = st.secrets["public_gsheets_url_Lisega2"]
-rows_Li2 = run_query(f'SELECT * FROM "{Li2}"')
-tab_Li2 = pd.DataFrame(rows_Li2)
-st.write(tab_Li2)
