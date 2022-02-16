@@ -84,3 +84,8 @@ if uploaded_file2 is not None:
     if st.button('📥 Скачать ведомость отправочных марок'):
         st.write('Мы тоже хотим чтобы это работало')
         st.balloons()
+
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
