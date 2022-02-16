@@ -48,7 +48,9 @@ if uploaded_file is not None:
 
     # Загружаем таблицу опор Lisega
 Li = st.secrets["public_gsheets_url_Lisega"]
-rows_Li = run_query(f'SELECT * FROM "{Li}"', dtype={'Lisega': str})
+st.write(Li)
+rows_Li = run_query(f'SELECT * FROM "{Li}"')
+st.write(rows_Li)
 tab_Li = pd.DataFrame(rows_Li)
 #tab_Li = pd.read_excel(st.secrets["public_gsheets_url_Lisega"], sheet_name=0, dtype={'Lisega': str})
 st.write(tab_Li)
