@@ -56,7 +56,7 @@ if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write(B)
-    C = B.groupby(['Lisega']).count()
+    C = B.groupby(['Lisega']).count(mark)
     st.write(C)
 
     def to_excel(df):
