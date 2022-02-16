@@ -25,7 +25,6 @@ st.subheader('Модуль классификации ведомостей ОП�
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
-#st.write(tab)
 
 uploaded_file = st.file_uploader("Загрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
 if uploaded_file is not None:
@@ -96,3 +95,10 @@ if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС Хинхакиви":
         st.sidebar.write('Оптимистичный выбор :)')
         st.sidebar.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
+
+st.subheader('Таблица соответствия ЛАЭС-2 - АККУЮ')
+    # Загружаем таблицу опор Lisega
+Li2 = st.secrets["public_gsheets_url_Lisega2"]
+rows_Li2 = run_query(f'SELECT * FROM "{Li2}"')
+tab_Li2 = pd.DataFrame(rows_Li2)
+st.write(tab_Li2)
