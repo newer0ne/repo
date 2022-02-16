@@ -56,7 +56,7 @@ uploaded_file2 = st.file_uploader("Загрузка тестовой ведом�
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     st.write(B)
-    C = pd.merge(B, tab_Li, how = 'outer', on = ['Lisega'])
+    C = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write(C)
 
     def to_excel(df):
