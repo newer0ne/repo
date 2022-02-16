@@ -49,7 +49,7 @@ if uploaded_file is not None:
     # Загружаем таблицу опор Lisega
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
-tab_Li = pd.DataFrame(rows_Li)
+tab_Li = pd.DataFrame(rows_Li, dtype=str)
 st.write(tab_Li)
 tab_Li = tab_Li.astype(str)
 st.write(tab_Li)
