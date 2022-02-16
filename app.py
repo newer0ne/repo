@@ -20,7 +20,7 @@ def run_query(query):
 
 st.title('Отдел инновационных технологий')
 st.header('Инженерно-программная группа')
-st.subheader('Модуль классификации ведомостей ОПС')
+st.subheader('Модуль классификации ведомостей ОПС на АЭС "АККУЮ"')
 
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
@@ -50,6 +50,7 @@ if uploaded_file is not None:
     df_xlsx = to_excel(final)
     st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
 
+st.subheader('Модуль классификации ведомостей ОПС на Курскую АЭС')
     # Загружаем таблицу опор Lisega
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
