@@ -20,8 +20,7 @@ def run_query(query):
 
 st.title('Отдел инновационных технологий')
 st.header('Инженерно-программная группа')
-st.subheader('Модуль классификации ведомостей ОПС',
-             'АЭС "АККУЮ"')
+st.subheader('Модуль классификации ведомостей ОПС АЭС "АККУЮ"')
 
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
