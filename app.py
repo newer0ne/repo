@@ -48,14 +48,9 @@ if uploaded_file is not None:
 
     # Загружаем таблицу опор Lisega
 Li = st.secrets["public_gsheets_url_Lisega"]
-st.write(Li)
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
-st.write(rows_Li)
 tab_Li = pd.DataFrame(rows_Li)
-#tab_Li = pd.read_excel(st.secrets["public_gsheets_url_Lisega"], sheet_name=0, dtype={'Lisega': str})
 st.write(tab_Li)
-#tab_Li = tab_Li.astype(str)
-#st.write(tab_Li)
 
 uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
