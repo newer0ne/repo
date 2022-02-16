@@ -87,13 +87,11 @@ if uploaded_file2 is not None:
 
 st.sidebar.title('Модуль проверки базы данных по атомной станции')
 stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
-st.write(stations)
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
-st.sidebar.write(add_selectbox)
 if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС АККУЮ":
-        st.write(tab)
+        st.sidebar.write(tab)
     if add_selectbox == "Курская АЭС":
-        st.write(tab_Li)
+        st.sidebar.write(tab_Li)
     if add_selectbox == "АЭС Хинхакиви":
-        st.write('Оптимистичный выбор :)')
+        st.sidebar.write('Оптимистичный выбор :)')
