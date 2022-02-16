@@ -75,4 +75,5 @@ if uploaded_file2 is not None:
         processed_data = output.getvalue()
         return processed_data
     df_xlsx = to_excel(B)
-    st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор на Курскую АЭС.xlsx')
+    st.download_button(label='📥 Скачать обработанную ведомость опор', data=df_xlsx, file_name= 'Ведомость опор на Курскую АЭС.xlsx')
+    st.button(label='📥 Скачать ведомость отправочных марок', on_click=st.write('Мы тоже хотим чтобы это работало'))
