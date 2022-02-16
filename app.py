@@ -50,14 +50,12 @@ if uploaded_file is not None:
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
-st.write(tab_Li)
 
 uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
+    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write(B)
-    C = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
-    st.write(C)
 
     def to_excel(df):
         output = BytesIO()
