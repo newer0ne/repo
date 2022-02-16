@@ -25,7 +25,7 @@ st.header('Инженерно-программная группа')
 
 
 
-st.sidebar.subheader('Модуль классификации ведомостей ОПС на АЭС АККУЮ')
+st.sidebar.header('Модуль классификации ведомостей ОПС на АЭС АККУЮ')
 
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
@@ -63,7 +63,7 @@ if uploaded_file is not None:
         
 
 
-st.sidebar.subheader('Модуль классификации ведомостей ОПС на Курскую АЭС')
+st.sidebar.header('Модуль классификации ведомостей ОПС на Курскую АЭС')
     # Загружаем таблицу опор Lisega
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
@@ -100,7 +100,7 @@ if uploaded_file2 is not None:
         
         
         
-st.sidebar.title('Модуль проверки базы данных по атомной станции')
+st.sidebar.header('Модуль проверки базы данных по атомной станции')
 stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
 if st.sidebar.button('Просмотреть'):
