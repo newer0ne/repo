@@ -20,18 +20,18 @@ def run_query(query):
 
 st.title('Отдел инновационных технологий')
 st.header('Инженерно-программная группа')
-st.subheader('Модуль классификации ведомостей ОПС на АЭС АККУЮ')
+st.sidebar.subheader('Модуль классификации ведомостей ОПС на АЭС АККУЮ')
 
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
 
-uploaded_file = st.file_uploader("Загрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
+uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, tab, how = 'outer', on = ['Note'])
     show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
-    st.write(show_final)
+    st.sidebar.write(show_final)
     @st.cache
     
         # Скачиваем обработанную ведомость
@@ -47,9 +47,9 @@ if uploaded_file is not None:
         processed_data = output.getvalue()
         return processed_data
     df_xlsx = to_excel(final)
-    st.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
-    if st.button('📥 Скачать ведомость отправочных марок'):
-        st.write('Мы тоже хотим чтобы это работало')
+    st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
+    if st.sidebar.button('📥 Скачать ведомость отправочных марок'):
+        st.sidebar.write('Мы тоже хотим чтобы это работало')
         st.balloons()
         
 
