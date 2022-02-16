@@ -105,13 +105,18 @@ stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхаки
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
 if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС АККУЮ":
-        st.sidebar.write(tab)
+        st.write(tab)
     if add_selectbox == "Курская АЭС":
-        st.sidebar.write(tab_Li)
+        st.write(tab_Li)
     if add_selectbox == "АЭС Хинхакиви":
-        st.sidebar.write('Оптимистичный выбор :)')
-        st.sidebar.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
+        st.write('Оптимистичный выбор :)')
+        st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
 
+        
+        
+        
+        
+        
 st.subheader('Таблица соответствия ЛАЭС-2 - АККУЮ')
     # Загружаем таблицу опор Lisega
 Li2 = st.secrets["public_gsheets_url_Lisega2"]
