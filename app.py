@@ -63,7 +63,8 @@ tab_Li = pd.DataFrame(rows_Li)
 
 uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
-#    st.write(uploaded_file2)
+    input_name = uploaded_file2.name.tolist()
+    st.write(input_name)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write(B)
@@ -95,3 +96,4 @@ if st.sidebar.button('Просмотреть'):
         st.sidebar.write(tab_Li)
     if add_selectbox == "АЭС Хинхакиви":
         st.sidebar.write('Оптимистичный выбор :)')
+'https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg'
