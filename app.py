@@ -88,6 +88,7 @@ if uploaded_file2 is not None:
 st.sidebar.title('Модуль проверки базы данных по атомной станции')
 stations = ["Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
+st.button
 if st.button("Просмотреть"):
         if add_selectbox == "АЭС АККУЮ":
                 st.write(tab)
