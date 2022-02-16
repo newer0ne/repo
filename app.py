@@ -27,7 +27,7 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 tab = pd.DataFrame(rows)
 #st.write(tab)
 
-uploaded_file = st.file_uploader("Зафгрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
+uploaded_file = st.file_uploader("Загрузка ведомости опор в формате .xls (Удалить первые два скрытых столбца, таблица должна начинаться с Код KKS)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, tab, how = 'outer', on = ['Note'])
