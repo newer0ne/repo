@@ -94,4 +94,4 @@ if st.button("Просмотреть"):
         if plot_type == "Курская АЭС":
                 st.write(tab_Li)
         if plot_type == "АЭС Хинхакиви":
-                st.write('Оптимистичный выбор :))
+                st.write('Оптимистичный выбор :)')
