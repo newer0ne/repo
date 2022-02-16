@@ -51,6 +51,7 @@ Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
 tab_Li = tab_Li.astype(str)
+st.write(tab_Li)
 
 uploaded_file2 = st.file_uploader("Загрузка тестовой ведомости опор для Lisega 49 type (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
