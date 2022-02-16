@@ -101,7 +101,7 @@ if uploaded_file2 is not None:
         
         
         
-st.sidebar.header('Модуль проверки базы данных по АЭС')
+st.sidebar.header('Модуль проверки баз данных по АЭС')
 stations = ["ЛАЭС-2 - АККУЮ","Курская АЭС", "АЭС АККУЮ", "АЭС Хинхакиви"]
 add_selectbox = st.sidebar.selectbox("Выберите базу данных для обзора:", stations)
 if st.sidebar.button('Просмотреть'):
