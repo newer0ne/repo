@@ -141,5 +141,5 @@ data2 = pd.DataFrame({
 })
 
 
-string_Li = data1['LI'].str.extract[r'[Aa-Zz]']
+string_Li = data1['LI'].tolist()
 st.write(string_Li)
