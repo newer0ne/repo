@@ -141,5 +141,6 @@ data2 = pd.DataFrame({
 })
 
 
-string_Li = data1['LI'].tolist()
+
+string_Li = data1['LI'].str[:2]
 st.write(string_Li)
