@@ -132,6 +132,7 @@ data1 = pd.DataFrame({
     'KT2': [5, 6, 7, 8],
 
 })
+st.write(data1)
 
 data2 = pd.DataFrame({
     'LI': [1, 1,  4],
