@@ -78,7 +78,8 @@ if uploaded_file2 is not None:
     B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
-    B.drop('Lisega product group')
+    st.write(B)
+    B.drop('Li_prod_group')
     st.write(B)
 
     def to_excel(df):
