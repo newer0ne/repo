@@ -141,7 +141,5 @@ data2 = pd.DataFrame({
 })
 
 
-data1 = data1.to_string()
-st.write(data1)
 string_Li = data1['LI'].to_string()
 st.write(string_Li)
