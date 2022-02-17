@@ -132,7 +132,7 @@ data1 = pd.DataFrame({
     'KT2': [5, 6, 7, 8],
 
 })
-st.write(data1)
+#st.write(data1)
 
 data2 = pd.DataFrame({
     'LI': [1, 1,  4],
@@ -142,7 +142,7 @@ data2 = pd.DataFrame({
 })
 
 data11 = data1['LI']
-st.write(data11)
-left = data11['LI'].str[:1]
+#st.write(data11)
+#left = data11['LI'].str[:1]
 #string_Li = data1['LI'].to_string()
-st.write(left)
+#st.write(left)
