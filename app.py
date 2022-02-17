@@ -128,17 +128,18 @@ if st.sidebar.button('Просмотреть'):
         st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
 
 data1 = pd.DataFrame({
-    'LI': [1, 1, 3, 4],
+    'LI': [12345, 1234, 1234, 1234],
     'KT2': [5, 6, 7, 8],
 
 })
 
 data2 = pd.DataFrame({
     'LI': [1, 1,  4],
-    "KT2":[5,6,0],
+    "KT2": [5,6,0],
     'c': [9, 10,  12],
     'd': [13, 14,  16]
 })
 
-ddd = string[2:5]
-st.write(ddd)
+
+string_Li = data1['LI'].str.extract[r'[Aa-Zz]']
+st.write(string_Li)
