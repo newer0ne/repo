@@ -140,6 +140,6 @@ data2 = pd.DataFrame({
     'd': [13, 14,  16]
 })
 
-
-string_Li = data1['LI'].to_string()
-st.write(string_Li)
+data11 = data1['LI']
+#string_Li = data1['LI'].to_string()
+st.write(data11)
