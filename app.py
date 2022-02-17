@@ -126,3 +126,19 @@ if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС Ханхикиви":
         st.header('Оптимистичный выбор :)')
         st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
+
+data1 = pd.DataFrame({
+    'LI': [1, 1, 3, 4],
+    'KT2': [5, 6, 7, 8],
+
+})
+
+data2 = pd.DataFrame({
+    'LI': [1, 1,  4],
+    "KT2":[5,6,0],
+    'c': [9, 10,  12],
+    'd': [13, 14,  16]
+})
+
+ddd = string[2:5]
+st.write(ddd)
