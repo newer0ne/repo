@@ -142,7 +142,8 @@ data2 = pd.DataFrame({
 })
 
 data11 = data1['LI']
-#st.write(data11)
-#left = data11['LI'].str[:1]
+st.write(data11)
+left = data11['LI'].to_list()
+st.write(left)
 #string_Li = data1['LI'].to_string()
-#st.write(left)
+
