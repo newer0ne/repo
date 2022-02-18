@@ -145,5 +145,5 @@ data11 = pd.DataFrame(data1['LI'])
 st.write(data11)
 left = pd.DataFrame(data11['LI'].values.tolist())
 st.write(left)
-#string_Li = data1['LI'].to_string()
-
+string_Li = left.str[:2]
+st.write(string_Li)
