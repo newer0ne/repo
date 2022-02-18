@@ -143,7 +143,7 @@ data2 = pd.DataFrame({
 
 data11 = data1['LI']
 st.write(data11)
-left = data11['LI'].to_numpy()
+left = data11['LI'].values.tolist()
 st.write(left)
 #string_Li = data1['LI'].to_string()
 
