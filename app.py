@@ -141,7 +141,7 @@ data2 = pd.DataFrame({
     'd': [13, 14,  16]
 })
 
-data11 = pd.DataFrame(data1, columns=1)
+data11 = pd.DataFrame(data1['LI'])
 st.write(data11)
 left = pd.DataFrame(data11['LI'].values.tolist())
 st.write(left)
