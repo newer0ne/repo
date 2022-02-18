@@ -141,9 +141,9 @@ data2 = pd.DataFrame({
     'd': [13, 14,  16]
 })
 
-data11 = data1['LI']
+data11 = pd.DataFrame(data1, colunms=['LI'])
 st.write(data11)
-left = data11['LI'].values.tolist()
+left = pd.DataFrame(data11['LI'].values.tolist())
 st.write(left)
 #string_Li = data1['LI'].to_string()
 
