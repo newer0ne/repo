@@ -75,12 +75,24 @@ uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой в�
 if uploaded_file2 is not None:
 #    st.write(uploaded_file2)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
+    B['Li type'] = B['Lisega'].str[:2]
+    B['Li diam class'] = B['Lisega'].str[2:4]
+    B['Li temp class'] = B['Lisega'].str[4:6]
+#    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
-    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
+#    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
     st.write(B)
 
+#tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
+#tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
+#tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
+#st.write(tab_Li)
+#tab_Li_61 = tab_Li.loc[tab_Li['Li type'] == '61']
+#st.write(tab_Li_61)
+    
+    
+    
     def to_excel(df):
         output = BytesIO()
         writer = pd.ExcelWriter(output, engine='xlsxwriter')
@@ -99,7 +111,7 @@ if uploaded_file2 is not None:
         st.balloons()
 
         
-        
+
         
         
         
@@ -126,14 +138,3 @@ if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС Ханхикиви":
         st.header('Оптимистичный выбор :)')
         st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
-
-        
-        
-        
-tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
-tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
-tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
-st.write(tab_Li)
-#tab_Li_61 = pd.Dataframe(tab_Li['Li type'] == '61') 
-tab_Li_61 = tab_Li.loc[tab_Li['Li type'] == '61'] 
-st.write(tab_Li_61)
