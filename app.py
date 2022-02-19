@@ -74,6 +74,10 @@ tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
 tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
 tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
 
+Link_ClassRuEn = st.secrets["ClassRuEn"]
+rows_ClassRuEn = run_query(f'SELECT * FROM "{Link_ClassRuEn}"')
+ClassRuEn = pd.DataFrame(rows_ClassRuEn)
+
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
 #    st.write(uploaded_file2)
@@ -90,7 +94,7 @@ if uploaded_file2 is not None:
     st.write(B)
     st.write(B_60)
     st.write(B_61)
-    B_60_1 = pd.merge(B_60, tab_Li, on = ['Li type','Li diam class'])
+    B_60_1 = pd.merge(B_60, ClassRuEn, on = ['Li type','Li diam class'])
     st.write(B_60_1)
     
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
