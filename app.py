@@ -97,10 +97,11 @@ if uploaded_file2 is not None:
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
     st.write(B)
+    st.write(B.count())
 #    st.write(B_61)
     B = pd.merge(B, ClassRuEn, how = 'inner', on = ['Li_type', 'Li_diam_class']) # 'Li_diam_class''Li_type'
     st.write(B)
-    st.write(B.count(rows))
+    st.write(B.count())
     
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
 #tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
