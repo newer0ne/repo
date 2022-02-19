@@ -132,4 +132,5 @@ if st.sidebar.button('Просмотреть'):
         
 tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
 tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
+tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
 st.write(tab_Li)
