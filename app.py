@@ -100,7 +100,7 @@ if uploaded_file2 is not None:
 #    st.write(B_61)
     B = pd.merge(B, ClassRuEn, how = 'inner', on = ['Li_type', 'Li_diam_class']) # 'Li_diam_class''Li_type'
     st.write(B)
-    st.write(B.count())
+    st.write(B.count)
     
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
 #tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
