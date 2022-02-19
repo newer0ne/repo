@@ -78,11 +78,15 @@ if uploaded_file2 is not None:
     B['Li type'] = B['Lisega'].str[:2]
     B['Li diam class'] = B['Lisega'].str[2:4]
     B['Li temp class'] = B['Lisega'].str[4:6]
+    B_60 = tab_Li.loc[tab_Li['Li type'] == '60']
+    B_61 = tab_Li.loc[tab_Li['Li type'] == '61']
 #    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
     st.write(B)
+    st.write(B_60)
+    st.write(B_61)
 
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
 #tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
