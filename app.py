@@ -87,7 +87,7 @@ if uploaded_file2 is not None:
 #    st.write(uploaded_file2)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B['Li_type'] = B['Lisega'].str[:2]
-    B['Li_diam class'] = B['Lisega'].str[2:4]
+    B['Li_diam_class'] = B['Lisega'].str[2:4]
     B['Li_temp_class'] = B['Lisega'].str[4:6]
     B_60 = B.loc[B['Li_type'] == '60']
     B_61 = B.loc[B['Li_type'] == '61']
