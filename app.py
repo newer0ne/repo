@@ -90,7 +90,7 @@ if uploaded_file2 is not None:
     st.write(B)
     st.write(B_60)
     st.write(B_61)
-    B_60 = pd.merge(B_60,data2,tab_Li=['Li type','Li diam class'],how='inner')
+    B_60 = pd.merge(B_60, tab_Li, how = 'left', on = ['Li type','Li diam class'], how = 'inner')
     st.write(B_60)
     
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
