@@ -131,4 +131,4 @@ if st.sidebar.button('Просмотреть'):
         
         
 tab_Li['new_col'] = tab_Li['Lisega'].str[:2]
-st.write[tab_Li]
+st.write(tab_Li)
