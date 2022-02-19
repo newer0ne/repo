@@ -78,6 +78,7 @@ Link_ClassRuEn = st.secrets["ClassRuEn"]
 rows_ClassRuEn = run_query(f'SELECT * FROM "{Link_ClassRuEn}"')
 ClassRuEn = pd.DataFrame(rows_ClassRuEn)
 st.write(ClassRuEn)
+ClassRuEn.dtypes
 
 
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
