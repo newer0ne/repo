@@ -76,9 +76,8 @@ tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
 
 Link_ClassRuEn = st.secrets["ClassRuEn"]
 rows_ClassRuEn = run_query(f'SELECT * FROM "{Link_ClassRuEn}"')
-ClassRuEn = pd.DataFrame(rows_ClassRuEn)
+ClassRuEn = pd.DataFrame(rows_ClassRuEn, dtype=str)
 st.write(ClassRuEn)
-st.write(print(ClassRuEn.dtypes))
 
 
 
