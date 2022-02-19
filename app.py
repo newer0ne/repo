@@ -126,3 +126,9 @@ if st.sidebar.button('Просмотреть'):
     if add_selectbox == "АЭС Ханхикиви":
         st.header('Оптимистичный выбор :)')
         st.image('https://s.wine.style/images_gen/423/4239/0_0_prod_desktop.jpg')
+
+        
+        
+        
+tab_Li['new_col'] = tab_Li['Lisega'].str[:2]
+st.write[tab_Li]
