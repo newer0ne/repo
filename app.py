@@ -84,11 +84,11 @@ uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой в�
 if uploaded_file2 is not None:
 #    st.write(uploaded_file2)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B['Li type'] = B['Lisega'].str[:2]
-    B['Li diam class'] = B['Lisega'].str[2:4]
-    B['Li temp class'] = B['Lisega'].str[4:6]
-    B_60 = B.loc[B['Li type'] == '60']
-    B_61 = B.loc[B['Li type'] == '61']
+    B['Li_type'] = B['Lisega'].str[:2]
+    B['Li_diam class'] = B['Lisega'].str[2:4]
+    B['Li_temp_class'] = B['Lisega'].str[4:6]
+    B_60 = B.loc[B['Li_type'] == '60']
+    B_61 = B.loc[B['Li_type'] == '61']
 #    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
@@ -96,7 +96,7 @@ if uploaded_file2 is not None:
     st.write(B)
     st.write(B_60)
     st.write(B_61)
-    B_60_1 = pd.merge(B_60, ClassRuEn, on = ['Li type','Li diam class'])
+    B_60_1 = pd.merge(B_60, ClassRuEn, on = ['Li_type','Li_diam_class'])
     st.write(B_60_1)
     
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
