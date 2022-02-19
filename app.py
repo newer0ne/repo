@@ -70,6 +70,9 @@ st.sidebar.header('Модуль классификации ведомостей 
 Li = st.secrets["public_gsheets_url_Lisega"]
 rows_Li = run_query(f'SELECT * FROM "{Li}"')
 tab_Li = pd.DataFrame(rows_Li)
+tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
+tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
+tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
 
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
@@ -87,7 +90,9 @@ if uploaded_file2 is not None:
     st.write(B)
     st.write(B_60)
     st.write(B_61)
-
+    B_60 = pd.merge(B_60,data2,tab_Li=['Li type','Li diam class'],how='inner')
+    st.write(B_60)
+    
 #tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
 #tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
 #tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
