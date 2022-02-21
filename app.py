@@ -87,7 +87,9 @@ CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 
 #st.write(ClassRuEn)
+st.header('Оцифрованный каталог Lisega')
 st.write(CatLi)
+st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
 
 
