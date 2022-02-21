@@ -75,11 +75,20 @@ tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
 tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
 
 Link_ClassRuEn = st.secrets["ClassRuEn"]
+Link_CatLi = st.secrets["CatLi"]
+Link_CatKT2 = st.secrets["CatKT2"]
+
 rows_ClassRuEn = run_query(f'SELECT * FROM "{Link_ClassRuEn}"')
+rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
+rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
+
 ClassRuEn = pd.DataFrame(rows_ClassRuEn, dtype=str)
-st.write(ClassRuEn)
+CatLi = pd.DataFrame(rows_CatLi, dtype=str)
+CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 
-
+#st.write(ClassRuEn)
+st.write(CatLi)
+st.write(CatKT2)
 
 
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
