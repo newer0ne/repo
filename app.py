@@ -91,6 +91,7 @@ st.header('Оцифрованный каталог Lisega')
 st.write(CatLi)
 st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
+CatKT2 = CatKT2['Fz_100_x'] <= CatKT2['Fz_100_y']
 
 
 st.header('Таблица соответствия')
