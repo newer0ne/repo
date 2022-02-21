@@ -93,6 +93,12 @@ st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
 
 
+st.header('Таблица соответствия')
+tabLiKT2 = pd.merge(CatLi, CatKT2, on = ['Li_type', 'Li_diam_class'])
+st.write(tabLiKT2)
+
+
+
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
 #    st.write(uploaded_file2)
