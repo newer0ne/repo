@@ -101,6 +101,10 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 st.write('Fz <= Fz')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 tabLiKT2['Li_type'].astype(float)
+
+df_filter = tabLiKT2['Li_type'].isin(['60', '61']) 
+st.write(df_filter)
+
 loc_6x = ['60', '61', '62', '63', '64', '65', '66', '67']
 loc_7x = ['73', '75']
 tabLiKT2.loc[loc_6x]
