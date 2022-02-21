@@ -99,8 +99,8 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 
 # Задаём условие Fz <= Fz
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
-tabLiKT2['diam_x', 'diam_y'].astype(float)
-tabLiKT2.sort_values(by=['Li_type', 'diam_x'])
+tabLiKT2['D_x'] = tabLiKT2['diam_x'].astype(float)
+tabLiKT2.sort_values(by=['Li_type', 'D_x'])
 st.write(tabLiKT2)
 
 
