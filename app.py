@@ -105,31 +105,7 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 st.write('Fz <= Fz')
 st.write(tabLiKT2)
 tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
-tabLiKT2['Li_type'].astype(float)
 
-st.write('Соответствие группы проуктов **Lisega 2**')
-tabLiKT2_2x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '20') & (tabLiKT2['Li_type'] < '30')]
-st.write(tabLiKT2_2x)
-
-st.write('Соответствие группы проуктов **Lisega 3**')
-tabLiKT2_3x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '30') & (tabLiKT2['Li_type'] < '40')]
-st.write(tabLiKT2_3x)
-
-st.write('Соответствие группы проуктов **Lisega 4**')
-tabLiKT2_4x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '40') & (tabLiKT2['Li_type'] < '50')]
-st.write(tabLiKT2_4x)
-
-st.write('Соответствие группы проуктов **Lisega 5**')
-tabLiKT2_5x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '50') & (tabLiKT2['Li_type'] < '60')]
-st.write(tabLiKT2_5x)
-
-st.write('Соответствие группы проуктов **Lisega 6**')
-tabLiKT2_6x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '60') & (tabLiKT2['Li_type'] <= '70')]
-st.write(tabLiKT2_6x)
-
-st.write('Соответствие группы проуктов **Lisega 7**')
-tabLiKT2_7x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '70') & (tabLiKT2['Li_type'] <= '80')]
-st.write(tabLiKT2_7x)
 
 
 
@@ -140,9 +116,10 @@ if uploaded_file2 is not None:
     B['Li_type'] = B['Lisega'].str[:2]
     B['Li_diam_class'] = B['Lisega'].str[2:4]
     B['Li_series'] = B['Lisega'].str[4:6]
-    B = pd.merge(B, tabLiKT2_4x, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_series'])
-    B = pd.merge(B, tabLiKT2_6x, how = 'left', on = ['Li_type', 'Li_diam_class'])
-    B = pd.merge(B, tabLiKT2_7x, how = 'left', on = ['Li_type', 'Li_diam_class'])    
+    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class'])
+ 
+
+
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
