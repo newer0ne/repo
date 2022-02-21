@@ -103,7 +103,7 @@ tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 tabLiKT2['Li_type'].astype(float)
 
 
-st.write('tabLiKT2_60')
+st.write('Соответствие группы проуктов **Lisega 6xxxxx** каталогу **KT2**')
 tabLiKT2_6x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '60') & (tabLiKT2['Li_type'] <= '70')]
 st.write(tabLiKT2_6x)
 
