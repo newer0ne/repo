@@ -95,7 +95,7 @@ st.write(CatKT2)
 
 st.header('Таблица соответствия')
 tabLiKT2 = pd.merge(CatLi, CatKT2, on = ['Li_type', 'Li_diam_class'])
-tabLiKT2 = tabLiKT2.drop(['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
+tabLiKT2 = tabLiKT2.drop(tabLiKT2['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
 st.write(tabLiKT2)
 
 
