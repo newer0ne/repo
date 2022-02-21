@@ -72,18 +72,6 @@ if uploaded_file is not None:
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на АЭС АККУЮ. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
     st.write(show_final)
-    @st.cache
-    def to_excel(df):
-        output = BytesIO()
-        writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        df.to_excel(writer, index=False, sheet_name='Sheet1')
-        workbook = writer.book
-        worksheet = writer.sheets['Sheet1']
-        format1 = workbook.add_format({'num_format': '0.00'})
-        worksheet.set_column('A:A', None, format1)
-        writer.save()
-        processed_data = output.getvalue()
-        return processed_data
     # Скачиваем обработанную ведомость
     df_xlsx = to_excel(final)
     st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
