@@ -101,7 +101,7 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 st.write('Fz <= Fz')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 tabLiKT2['Li_type'].astype(float)
-tabLiKT2_6x = tabLiKT2[(tabLiKT2.Li_type >= 60)]
+tabLiKT2_6x = tabLiKT2
 tabLiKT2_6x(tabLiKT2.Li_type > 60)
 st.write(tabLiKT2_6x)
 
