@@ -100,7 +100,7 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 # Задаём условие Fz <= Fz
 st.write('Fz <= Fz')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
-st.write(tabLiKT2)
+
 
 
 
