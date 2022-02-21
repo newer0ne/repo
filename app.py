@@ -103,18 +103,14 @@ CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','
 CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
 tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class'])
 
-st.write('Проверка корректности')
-st.write(tabLiKT2)
-st.write(tabLiKT2.count())
+#st.write('Проверка корректности')
+#st.write(tabLiKT2)
+#st.write(tabLiKT2.count())
 
-st.write('Проверка сравнения')
+#st.write('Проверка сравнения')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 st.write(tabLiKT2.count())
 
-st.write('Проверка drop_duplicates')
-show_tabLiKT2 = tabLiKT2.drop_duplicates(keep='first')
-st.write(show_tabLiKT2)
-st.write(show_tabLiKT2.count())
 
 
 
