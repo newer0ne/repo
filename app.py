@@ -14,9 +14,29 @@ conn = connect()
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
 @st.cache(ttl=600)
+
 def run_query(query):
     rows = conn.execute(query, headers=1)
     return rows
+
+# Загружаем таблицу опор Lisega
+Link_CatLi = st.secrets["CatLi"]
+Link_CatKT2 = st.secrets["CatKT2"]
+
+# Извлекаем строки SQL запросом по линку
+rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
+rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
+
+# Собираем датафреймы
+CatLi = pd.DataFrame(rows_CatLi, dtype=str)
+CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
+
+# Смотрим на наши каталоги
+#st.header('Оцифрованный каталог Lisega')
+#st.write(CatLi)
+#st.header('Оцифрованный каталог KT2')
+#st.write(CatKT2)
+
 
 st.title('Отдел инновационных технологий')
 st.header('Инженерно-программная группа')
