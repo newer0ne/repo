@@ -111,9 +111,10 @@ st.write('Проверка сравнения')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 st.write(tabLiKT2.count())
 
+st.write('Проверка drop_duplicates')
 show_tabLiKT2 = tabLiKT2.drop_duplicates(keep='first')
 st.write(show_tabLiKT2)
-
+st.write(show_tabLiKT2.count())
 
 
 
