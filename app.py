@@ -91,7 +91,7 @@ st.header('Оцифрованный каталог Lisega')
 st.write(CatLi)
 st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
-CatKT2 = CatKT2['Fz_100_x'] <= CatKT2['Fz_100_y']
+
 
 
 st.header('Таблица соответствия')
@@ -100,7 +100,8 @@ CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
 tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class'])
 st.write(tabLiKT2)
 
-
+tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
+st.write(tabLiKT2)
 
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
