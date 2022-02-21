@@ -105,7 +105,7 @@ tabLiKT2['Li_type'].astype(float)
 
 st.write('tabLiKT2_60')
 tabLiKT2_6x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '60') | (tabLiKT2['Li_type'] <= '70')]
-st.write(tabLiKT2_60)
+st.write(tabLiKT2_6x)
 
 
 
