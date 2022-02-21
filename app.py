@@ -9,15 +9,29 @@ import os
 import csv
 from pyxlsb import open_workbook as open_xlsb
 
-# Create a connection object.
-conn = connect()
+conn = connect()                                                        # Create a connection object.
+
 # Perform SQL query on the Google Sheet.
-# Uses st.cache to only rerun when the query changes or after 10 min.
-@st.cache(ttl=600)
+@st.cache(ttl=600)                                                       # Uses st.cache to only rerun when the query changes or after 10 min.
 
 def run_query(query):
     rows = conn.execute(query, headers=1)
     return rows
+
+def to_excel(df):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Sheet1')
+    workbook = writer.book
+    worksheet = writer.sheets['Sheet1']
+    format1 = workbook.add_format({'num_format': '0.00'})
+    worksheet.set_column('A:A', None, format1)
+    writer.save()
+    processed_data = output.getvalue()
+    return processed_data
+
+
+#Модуль загрузок
 
 # Загружаем таблицу опор Lisega
 Link_CatLi = st.secrets["CatLi"]
@@ -31,11 +45,8 @@ rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
 CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 
-# Смотрим на наши каталоги
-#st.header('Оцифрованный каталог Lisega')
-#st.write(CatLi)
-#st.header('Оцифрованный каталог KT2')
-#st.write(CatKT2)
+
+
 
 
 st.title('Отдел инновационных технологий')
@@ -43,10 +54,7 @@ st.header('Инженерно-программная группа')
 st.write('Краткое описание интерфейса: слева - панель рабочих функций, ниже - рабочее поле. ',
          'После применения необходимой функции, например, проверки базы данных по АЭС - на рабочем поле отображаются результаты.') 
 
-with st.expander("Каталог Lisega 2010 + Lisega 2020"):
-    st.write(CatLi)
-with st.expander("Каталог KT2"):
-    st.write(CatKT2)
+
 
 
 
@@ -65,53 +73,25 @@ if uploaded_file is not None:
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
     st.write(show_final)
     @st.cache
-    
-        # Скачиваем обработанную ведомость
-    def to_excel(df):
-        output = BytesIO()
-        writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        df.to_excel(writer, index=False, sheet_name='Sheet1')
-        workbook = writer.book
-        worksheet = writer.sheets['Sheet1']
-        format1 = workbook.add_format({'num_format': '0.00'})
-        worksheet.set_column('A:A', None, format1)
-        writer.save()
-        processed_data = output.getvalue()
-        return processed_data
+    # Скачиваем обработанную ведомость
     df_xlsx = to_excel(final)
     st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= 'Ведомость опор.xlsx')
     if st.sidebar.button('📥 Скачать ведомость отправочных марок'):
         st.sidebar.write('Мы тоже хотим чтобы это работало')
         st.balloons()
-        
-        
-        
-        
 
 
+
+
+        
 st.sidebar.header('Модуль классификации ведомостей ОПС на Курскую АЭС')
 
-# Загружаем таблицу опор Lisega
-Link_CatLi = st.secrets["CatLi"]
-Link_CatKT2 = st.secrets["CatKT2"]
-
-# Извлекаем строки SQL запросом по линку
-rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
-rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
-
-# Собираем датафреймы
-CatLi = pd.DataFrame(rows_CatLi, dtype=str)
-CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 
 # Смотрим на наши каталоги
-#st.header('Оцифрованный каталог Lisega')
-#st.write(CatLi)
+st.header('Оцифрованный каталог Lisega')
+st.write(CatLi)
 st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
-
-
-
-
 
 
 # Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
