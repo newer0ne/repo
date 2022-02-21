@@ -23,6 +23,8 @@ st.header('Инженерно-программная группа')
 st.write('Краткое описание интерфейса: слева - панель рабочих функций, ниже - рабочее поле. ',
          'После применения необходимой функции, например, проверки базы данных по АЭС - на рабочем поле отображаются результаты.') 
 
+with st.expander("Каталог KT2"):
+    st.write(CatLi)
 
 
 
@@ -80,8 +82,8 @@ CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 
 # Смотрим на наши каталоги
-st.header('Оцифрованный каталог Lisega')
-st.write(CatLi)
+#st.header('Оцифрованный каталог Lisega')
+#st.write(CatLi)
 st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
 
