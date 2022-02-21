@@ -99,56 +99,33 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 
 # Задаём условие Fz <= Fz
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
-tabLiKT2['D_x'] = tabLiKT2['diam_x'].astype(float)
-tabLiKT2.sort_values(by=['Li_type', 'D_x'])
 st.write(tabLiKT2)
 
 
 
-
-
-
+# Создаём кнопку загрузки в сайдбаре для Курской АЭС
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
 #    st.write(uploaded_file2)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     B['Li_type'] = B['Lisega'].str[:2]
     B['Li_diam_class'] = B['Lisega'].str[2:4]
-    B['Li_temp_class'] = B['Lisega'].str[4:6]
-    B_60 = B.loc[B['Li_type'] == '60']
-    B_61 = B.loc[B['Li_type'] == '61']
+    B['Li_series'] = B['Lisega'].str[4:6]
+#    B_60 = B.loc[B['Li_type'] == '60']
+#    B_61 = B.loc[B['Li_type'] == '61']
     
-#    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
+    B = pd.merge(B, tab_Li, how = 'left', on = ['Lisega'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
     st.write(B)
     st.write(B.count())
 #    st.write(B_61)
-    B = pd.merge(B, ClassRuEn, how = 'inner', on = ['Li_type', 'Li_diam_class']) # 'Li_diam_class''Li_type'
+    B = pd.merge(B, tabLiKT2, how = 'inner', on = ['Li_type', 'Li_diam_class', 'Li_series'])
     st.write(B)
     st.write(B.count())
-    
-#tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
-#tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
-#tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
-#st.write(tab_Li)
-#tab_Li_61 = tab_Li.loc[tab_Li['Li type'] == '61']
-#st.write(tab_Li_61)
-    
-    
-    
-    def to_excel(df):
-        output = BytesIO()
-        writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        df.to_excel(writer, index=False, sheet_name='Sheet1')
-        workbook = writer.book
-        worksheet = writer.sheets['Sheet1']
-        format1 = workbook.add_format({'num_format': '0.00'})
-        worksheet.set_column('A:A', None, format1)
-        writer.save()
-        processed_data = output.getvalue()
-        return processed_data
+
+    # Скачиваем файл талицы
     df_xlsx = to_excel(B)
     st.sidebar.download_button(label='📥 Скачать обработанную ведомость опор', data=df_xlsx, file_name= 'Ведомость опор на Курскую АЭС.xlsx')
     if st.sidebar.button('📥 Скачать ведомость отправочных марок'):
