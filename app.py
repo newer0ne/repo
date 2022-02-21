@@ -98,10 +98,15 @@ st.header('Таблица соответствия')
 CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
 CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
 tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class'])
-st.write(tabLiKT2)
 
+st.write('Проверка корректности')
+st.write(tabLiKT2)
+st.write(tabLiKT2.count())
+
+st.write('Проверка сравнения')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 st.write(tabLiKT2)
+st.write(tabLiKT2.count())
 
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
