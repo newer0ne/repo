@@ -66,27 +66,20 @@ if uploaded_file is not None:
 
 
 st.sidebar.header('Модуль классификации ведомостей ОПС на Курскую АЭС')
-    # Загружаем таблицу опор Lisega
-#Li = st.secrets["public_gsheets_url_Lisega"]
-#rows_Li = run_query(f'SELECT * FROM "{Li}"')
-#tab_Li = pd.DataFrame(rows_Li)
-#tab_Li['Li type'] = tab_Li['Lisega'].str[:2]
-#tab_Li['Li diam class'] = tab_Li['Lisega'].str[2:4]
-#tab_Li['Li temp class'] = tab_Li['Lisega'].str[4:6]
 
-#Link_ClassRuEn = st.secrets["ClassRuEn"]
+# Загружаем таблицу опор Lisega
 Link_CatLi = st.secrets["CatLi"]
 Link_CatKT2 = st.secrets["CatKT2"]
 
-#rows_ClassRuEn = run_query(f'SELECT * FROM "{Link_ClassRuEn}"')
+# Извлекаем строки SQL запросом по линку
 rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
 rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
 
-#ClassRuEn = pd.DataFrame(rows_ClassRuEn, dtype=str)
+# Собираем датафреймы
 CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 
-#st.write(ClassRuEn)
+# Смотрим на наши каталоги
 st.header('Оцифрованный каталог Lisega')
 st.write(CatLi)
 st.header('Оцифрованный каталог KT2')
@@ -97,19 +90,18 @@ st.write(CatKT2)
 
 
 
-
+# Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
 st.header('Таблица соответствия')
 CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
 CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
 tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class'])
 
-#st.write('Проверка корректности')
-#st.write(tabLiKT2)
-#st.write(tabLiKT2.count())
 
-#st.write('Проверка сравнения')
+# Задаём условие Fz <= Fz
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
-#st.write(tabLiKT2.count())
+tabLiKT2['diam_x', 'diam_y'].astype(float)
+tabLiKT2.sort_values(by=['Li_type', 'diam_x'])
+st.write(tabLiKT2)
 
 
 
