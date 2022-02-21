@@ -102,10 +102,17 @@ st.write('Fz <= Fz')
 tabLiKT2[(tabLiKT2.Fz_100_x <= tabLiKT2.Fz_100_y)]
 tabLiKT2['Li_type'].astype(float)
 
+st.write('Соответствие группы проуктов **Lisega 4**')
+tabLiKT2_4x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '40') & (tabLiKT2['Li_type'] < '50')]
+st.write(tabLiKT2_4x)
 
 st.write('Соответствие группы проуктов **Lisega 6**')
 tabLiKT2_6x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '60') & (tabLiKT2['Li_type'] <= '70')]
 st.write(tabLiKT2_6x)
+
+st.write('Соответствие группы проуктов **Lisega 7**')
+tabLiKT2_7x = tabLiKT2.loc[(tabLiKT2['Li_type'] >= '70') & (tabLiKT2['Li_type'] <= '80')]
+st.write(tabLiKT2_7x)
 
 
 
