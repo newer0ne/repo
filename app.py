@@ -109,7 +109,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
-    tabLiKT2.drop('Li_type'; 'Li_diam_class'; 'Li_series')
+    tabLiKT2.drop('Li_type', 'Li_diam_class', 'Li_series')
 
 
 
