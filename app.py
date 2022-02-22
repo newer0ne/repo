@@ -108,7 +108,7 @@ st.write("""В таблице отражено соответствие комп
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
 with st.expander("Таблица соответствия"):
-tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
+    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
 
 
 
