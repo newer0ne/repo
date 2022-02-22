@@ -115,7 +115,7 @@ if uploaded_file2 is not None:
     B['Li_type'] = B['Lisega'].str[:2]
     B['Li_diam_class'] = B['Lisega'].str[2:4]
     B['Li_series'] = B['Lisega'].str[4:6]
-    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class'])
+    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_series'])
  
 
 
