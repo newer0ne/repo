@@ -110,7 +110,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
     st.write("""В таблице отражено соответствие компонентов ОПС Lisega (2010-2020) и KT2 (EN и RU)
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
-    tabLiKT2 = tabLiKT2.drop(columns=['Li_type','Li_diam_class','Li_series','Li_delim','Li_length'])
+    tabLiKT2 = tabLiKT2.drop(columns=['Li_type','Li_diam_class','Li_series','Li_delim','Li_length','Li_series'])
     st.write('После функции pd.merge')
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
 
@@ -126,7 +126,7 @@ if uploaded_file2 is not None:
 #    B['Li_type'] = B['Lisega'].str[:2]
 #    B['Li_diam_class'] = B['Lisega'].str[2:4]
 #    B['Li_series'] = B['Lisega'].str[4:6]
-#    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_series'])
+#    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_diam','KT2_length'])
  
 
 
