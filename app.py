@@ -109,6 +109,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
+    tabLiKT2.drop('Li_type'; 'Li_diam_class'; 'Li_series')
 
 
 
@@ -117,10 +118,11 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    B['Li_type'] = B['Lisega'].str[:2]
-    B['Li_diam_class'] = B['Lisega'].str[2:4]
-    B['Li_series'] = B['Lisega'].str[4:6]
-    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_series'])
+    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Lisega'])
+#    B['Li_type'] = B['Lisega'].str[:2]
+#    B['Li_diam_class'] = B['Lisega'].str[2:4]
+#    B['Li_series'] = B['Lisega'].str[4:6]
+#    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_series'])
  
 
 
