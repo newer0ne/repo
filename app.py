@@ -88,11 +88,11 @@ st.sidebar.header('Модуль классификации ведомостей 
 
 
 # Смотрим на наши каталоги
-with st.expander("Оцифрованный каталог Lisega"):
-    #st.header('Оцифрованный каталог Lisega')
+with st.expander("Каталог Lisega"):
+    #st.header('Каталог Lisega')
     st.write(CatLi)
-with st.expander("Оцифрованный каталог KT2"):
-    #st.header('Оцифрованный каталог KT2')
+with st.expander("Каталог KT2"):
+    #st.header('Каталог KT2')
     st.write(CatKT2)
 
 
@@ -104,7 +104,7 @@ tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class']
 
 
 # Задаём условие Fz <= Fz
-with st.expander("Таблица соответствия"):
+with st.expander("Таблица соответствия ОПС Lisega - KT2"):
     st.write("""В таблице отражено соответствие компонентов ОПС Lisega (2010-2020) и KT2 (EN и RU)
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
