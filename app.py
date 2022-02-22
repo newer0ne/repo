@@ -89,11 +89,11 @@ st.sidebar.header('Модуль классификации ведомостей 
 
 # Смотрим на наши каталоги
 with st.expander("Оцифрованный каталог Lisega"):
-#st.header('Оцифрованный каталог Lisega')
-st.write(CatLi)
+    #st.header('Оцифрованный каталог Lisega')
+    st.write(CatLi)
 with st.expander("Оцифрованный каталог KT2"):
-#st.header('Оцифрованный каталог KT2')
-st.write(CatKT2)
+    #st.header('Оцифрованный каталог KT2')
+    st.write(CatKT2)
 
 
 # Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
