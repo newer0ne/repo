@@ -102,8 +102,6 @@ CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','
 CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
 tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class'])
 
-st.write('До функции pd.merge', tabLiKT2)
-
 
 # Задаём условие Fz <= Fz
 with st.expander("Таблица соответствия ОПС Lisega - KT2"):
@@ -111,7 +109,6 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
     tabLiKT2 = tabLiKT2.drop(columns=['Li_type','Li_diam_class','Li_series','Li_delim','Li_length','Li_diam','KT2_length'])
-    st.write('После функции pd.merge')
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
 
 
