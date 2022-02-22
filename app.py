@@ -88,9 +88,11 @@ st.sidebar.header('Модуль классификации ведомостей 
 
 
 # Смотрим на наши каталоги
-st.header('Оцифрованный каталог Lisega')
+with st.expander("Оцифрованный каталог Lisega"):
+#st.header('Оцифрованный каталог Lisega')
 st.write(CatLi)
-st.header('Оцифрованный каталог KT2')
+with st.expander("Оцифрованный каталог KT2"):
+#st.header('Оцифрованный каталог KT2')
 st.write(CatKT2)
 
 
