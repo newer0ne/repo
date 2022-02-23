@@ -90,7 +90,8 @@ st.sidebar.header('Модуль классификации ведомостей 
 # Смотрим на наши каталоги
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
-    st.write(CatLi)
+    show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100', 'Fz_250', 'Fz_350']]
+    st.write(show_CatLi)
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
     show_CatKT2 = CatKT2[['KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
