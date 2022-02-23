@@ -93,7 +93,8 @@ with st.expander("Каталог Lisega"):
     st.write(CatLi)
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
-    st.write(CatKT2)
+    show_CatKT2 = CatKT2.drop(columns=['Li_type','Li_diam_class'])           #,'Li_series','Li_delim','Li_length','Li_diam','KT2_length'
+    st.write(show_CatKT2)
 
 
 # Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
