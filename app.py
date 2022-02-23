@@ -93,8 +93,8 @@ with st.expander("Каталог Lisega"):
     st.write(CatLi)
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
-    st.write(CatKT2)
-    show_CatKT2 = CatKT2[['KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]           #'Li_type','Li_diam_class','Li_series','Li_delim','Li_length','Li_diam','KT2_length'
+    show_CatKT2 = CatKT2[['KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
+    show_CatKT2.sort_values(by=['KT2_mark'])
     st.write(show_CatKT2)
 
 
