@@ -92,7 +92,8 @@ with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
     show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100', 'Fz_250', 'Fz_350']]
     st.write(show_CatLi)
-        title_Li = st.text_input('Проверка кода Lisega', 'Поле ввода кода Lisega для проверки')
+    title_Li = st.text_input('Поле ввода кода Lisega для проверки')
+    if title_Li is not None:
         show_CatLi.loc[title_Li]
     
 with st.expander("Каталог KT2"):
