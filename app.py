@@ -100,11 +100,9 @@ with st.expander("Каталог KT2"):
     show_CatKT2 = CatKT2[['KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
     title_KT2_1 = st.text_input('Поле ввода Маркировки KT2 для проверки')
-    if title_KT2_1 is not None:
-        st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2_1])
+    st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2_1])
     title_KT2_2 = st.text_input('Поле ввода Обозначения KT2 для проверки')
-    if title_KT2_2 is not None:
-        st.write(show_CatKT2.loc[show_CatKT2['Обозначение'] == title_KT2_2])
+    st.write(show_CatKT2.loc[show_CatKT2['Обозначение'] == title_KT2_2])
         
 # Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
 #st.header('Таблица соответствия')
@@ -119,8 +117,8 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
 #    tabLiKT2 = tabLiKT2.drop(columns=['Li_type','Li_diam_class','Li_series','Li_delim','Li_length','Li_diam','KT2_length'])
-    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
-    tabLiKT2 = tabLiKT2.drop(columns=['Lisega_y','Li_series_y'])
+#    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
+#    tabLiKT2 = tabLiKT2.drop(columns=['Lisega_y','Li_series_y'])
 
 
 
@@ -130,9 +128,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-#    tabLiKT2.rename(columns={"Lisega_x": "Lisega"})
-    tabLiKT2
-    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Lisega_x'])
+    B = pd.merge(B, tabKT2, how = 'left', on = ['Lisega'])
 #    B['Li_type'] = B['Lisega'].str[:2]
 #    B['Li_diam_class'] = B['Lisega'].str[2:4]
 #    B['Li_series'] = B['Lisega'].str[4:6]
