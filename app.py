@@ -102,7 +102,7 @@ with st.expander("Каталог KT2"):
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
     title_KT2 = st.text_input('Поле ввода маркировки KT2 для проверки')
     if title_KT2 is not None:
-        st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2])
+        st.write(show_CatKT2.loc[show_CatKT2['KT2_mark', 'Обозначение'] == title_KT2])
 
 # Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
 #st.header('Таблица соответствия')
