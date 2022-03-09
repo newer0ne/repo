@@ -130,6 +130,7 @@ uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой в�
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     CatKT2_Fz100
+    B
     B = pd.merge(B, CatKT2_Fz100, how = 'left', on = ['Lisega'])
 #    B['Li_type'] = B['Lisega'].str[:2]
 #    B['Li_diam_class'] = B['Lisega'].str[2:4]
