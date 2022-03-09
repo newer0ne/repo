@@ -112,6 +112,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
             """)
 #    tabLiKT2 = tabLiKT2.drop(columns=['Li_type','Li_diam_class','Li_series','Li_delim','Li_length','Li_diam','KT2_length'])
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
+    tabLiKT2 = tabLiKT2.drop(columns=['Lisega_y','Li_series_y'])
 
 
 
@@ -121,7 +122,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    tabLiKT2.rename(columns={"Lisega_x": "Lisega"})
+#    tabLiKT2.rename(columns={"Lisega_x": "Lisega"})
     tabLiKT2
     B = pd.merge(B, tabLiKT2, how = 'left', on = ['Lisega'])
 #    B['Li_type'] = B['Lisega'].str[:2]
