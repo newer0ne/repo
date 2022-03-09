@@ -92,8 +92,8 @@ with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
     show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100', 'Fz_250', 'Fz_350']]
     st.write(show_CatLi)
-    title_Li = st.text_input('Проверка кода Lisega', 'Поле ввода кода Lisega для проверки')
-    show_CatLi.loc[title_Li]
+        title_Li = st.text_input('Проверка кода Lisega', 'Поле ввода кода Lisega для проверки')
+        show_CatLi.loc[title_Li]
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
