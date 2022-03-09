@@ -100,10 +100,13 @@ with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
     show_CatKT2 = CatKT2[['KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
-    title_KT2 = st.text_input('Поле ввода маркировки KT2 для проверки')
-    if title_KT2 is not None:
-        st.write(show_CatKT2.loc[show_CatKT2['KT2_mark', 'Обозначение'] == title_KT2])
-
+    title_KT2_1 = st.text_input('Поле ввода маркировки KT2 для проверки')
+    if title_KT2_1 is not None:
+        st.write(show_CatKT2.loc[show_CatKT2['KT2_mark', 'Обозначение'] == title_KT2_1])
+    title_KT2_2 = st.text_input('Поле ввода Обозначения KT2 для проверки')
+    if title_KT2_2 is not None:
+        st.write(show_CatKT2.loc[show_CatKT2['Обозначение'] == title_KT2_2])
+        
 # Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
 #st.header('Таблица соответствия')
 CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
