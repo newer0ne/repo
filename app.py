@@ -97,7 +97,7 @@ with st.expander("Каталог Lisega"):
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
-    show_CatKT2 = CatKT2[['KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
+    show_CatKT2 = CatKT2[['Lisega', 'KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
     title_KT2_1 = st.text_input('Поле ввода Маркировки KT2 для проверки')
     st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2_1])
@@ -129,12 +129,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    CatKT2_Fz100
-    B
-    B = pd.merge(B, CatKT2_Fz100, how = 'left', on = ['Lisega'])
-#    B['Li_type'] = B['Lisega'].str[:2]
-#    B['Li_diam_class'] = B['Lisega'].str[2:4]
-#    B['Li_series'] = B['Lisega'].str[4:6]
+    B = pd.merge(B, show_CatKT2, how = 'left', on = ['Lisega'])
 #    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_diam','KT2_length'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
