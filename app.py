@@ -94,7 +94,7 @@ with st.expander("Каталог Lisega"):
     st.write(show_CatLi)
     title_Li = st.text_input('Поле ввода кода Lisega для проверки')
     if title_Li is not None:
-        show_CatLi.loc['title_Li']
+    st.write(title_Li)
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
