@@ -111,6 +111,11 @@ CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
 tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, on = ['Li_type', 'Li_diam_class'])
 
 
+
+
+
+
+
 # Задаём условие Fz <= Fz
 with st.expander("Таблица соответствия ОПС Lisega - KT2"):
     st.write("""В таблице отражено соответствие компонентов ОПС Lisega (2010-2020) и KT2 (EN и RU)
@@ -130,7 +135,7 @@ uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой в�
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
     show_CatKT2['Lisega'].astype('str')
-    B = pd.merge(B, show_CatKT2, how = 'left', on = ['Lisega'])
+    B = pd.merge(B, show_CatKT2, how = 'inner', on = ['Lisega'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
