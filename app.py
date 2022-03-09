@@ -121,14 +121,12 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
+    tabLiKT2
     B = pd.merge(B, tabLiKT2, how = 'left', on = ['Lisega'])
 #    B['Li_type'] = B['Lisega'].str[:2]
 #    B['Li_diam_class'] = B['Lisega'].str[2:4]
 #    B['Li_series'] = B['Lisega'].str[4:6]
 #    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Li_type', 'Li_diam_class', 'Li_diam','KT2_length'])
- 
-
-
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
