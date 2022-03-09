@@ -124,7 +124,7 @@ if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
 #    tabLiKT2.rename(columns={"Lisega_x": "Lisega"})
     tabLiKT2
-    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Lisega'])
+    B = pd.merge(B, tabLiKT2, how = 'left', on = ['Lisega_x'])
 #    B['Li_type'] = B['Lisega'].str[:2]
 #    B['Li_diam_class'] = B['Lisega'].str[2:4]
 #    B['Li_series'] = B['Lisega'].str[4:6]
