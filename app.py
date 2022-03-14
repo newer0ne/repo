@@ -90,7 +90,7 @@ st.sidebar.header('Модуль классификации ведомостей 
 # Смотрим на наши каталоги
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
-    show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100', 'Fz_250', 'Fz_350']]
+    show_CatLi = CatLi[['Lisega', 'AKU_mark', 'Li_name', 'Li_diam', 'Li_Fz_100']]
     st.write(show_CatLi)
     title_Li = st.text_input('Поле ввода кода Lisega для проверки')
     st.write(show_CatLi.loc[show_CatLi['Lisega'] == title_Li])
