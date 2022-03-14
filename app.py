@@ -90,14 +90,14 @@ st.sidebar.header('Модуль классификации ведомостей 
 # Смотрим на наши каталоги
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
-    show_CatLi = CatLi[['Lisega', 'AKU_mark', 'Li_name', 'Li_diam', 'Li_Fz_100']]
+    show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100']]
     st.write(show_CatLi)
     title_Li = st.text_input('Поле ввода кода Lisega для проверки')
     st.write(show_CatLi.loc[show_CatLi['Lisega'] == title_Li])
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
-    show_CatKT2 = CatKT2[['Lisega', 'KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
+    show_CatKT2 = CatKT2[['Lisega', 'AKU_mark', 'KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100', 'Fz_250', 'Fz_350']]
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
     title_KT2_1 = st.text_input('Поле ввода Маркировки KT2 для проверки')
     st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2_1])
