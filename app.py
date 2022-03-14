@@ -36,15 +36,17 @@ def to_excel(df):
 # Загружаем таблицу опор Lisega
 Link_CatLi = st.secrets["CatLi"]
 Link_CatKT2 = st.secrets["CatKT2"]
+Link_CatAKU = st.secrets["CatKT2"]
 
 # Извлекаем строки SQL запросом по линку
 rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
 rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
+rows_CatAKU = run_query(f'SELECT * FROM "{Link_CatAKU}"')
 
 # Собираем датафреймы
 CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
-
+CatAKU = pd.DataFrame(rows_CatAKU, dtype=str)
 
 
 
@@ -67,7 +69,7 @@ tab = pd.DataFrame(rows)
 uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Нужно удалить первые два скрытых столбца. Таблица должна начинаться со столбца **Код KKS**)")
 if uploaded_file is not None:
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
-    final = pd.merge(A, tab, how = 'left', on = ['Note'])
+    final = pd.merge(A, CatAKU, how = 'left', on = ['AKU'])
     show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на АЭС АККУЮ. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
