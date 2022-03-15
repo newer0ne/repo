@@ -70,7 +70,7 @@ if uploaded_file is not None:
     st.write(A)
     st.write(CatAKU)
     final = pd.merge(A, CatAKU, how = 'left', on = ['Note'])
-    show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+#    show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на АЭС АККУЮ. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
     st.write(final)
