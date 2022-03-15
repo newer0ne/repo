@@ -41,7 +41,7 @@ Link_CatAKU = st.secrets["CatAKU"]
 # Извлекаем строки SQL запросом по линку
 rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
 rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
-rows_CatAKU = run_query(f'SELECT * FROM "{Link_CatAKU}"')
+rows_CatAKU = run_query(f'SELECT 'Note', 'kt2cat', 'kt2', 'name', 'mass' FROM "{Link_CatAKU}"')
 
 # Собираем датафреймы
 CatLi = pd.DataFrame(rows_CatLi, dtype=str)
@@ -70,7 +70,7 @@ if uploaded_file is not None:
     st.write(A)
     st.write(CatAKU)
     final = pd.merge(A, CatAKU, how = 'left', on = ['Note'])
- #   show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
+    show_final = final.drop(columns=['Name','Designation of the document', 'Pipeline system code', 'Pipe Run', 'Pipeline elevation', 'Room'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на АЭС АККУЮ. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
     st.write(final)
