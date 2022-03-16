@@ -12,7 +12,7 @@ from pyxlsb import open_workbook as open_xlsb
 conn = connect()                                                        # Create a connection object.
 
 # Perform SQL query on the Google Sheet.
-@st.cache(ttl=600)                                                       # Uses st.cache to only rerun when the query changes or after 10 min.
+@st.cache(ttl=300)                                                       # Uses st.cache to only rerun when the query changes or after 10 min.
 
 def run_query(query):
     rows = conn.execute(query, headers=1)
