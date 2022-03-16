@@ -42,7 +42,7 @@ Link_CatAKU = st.secrets["CatAKU"]
 rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
 rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
 #rows_CatAKU = run_query(f'SELECT Note, kt2cat, kt2, name, mass FROM "{Link_CatAKU}"')
-rows_CatAKU = run_query(f'SELECT * FROM "{Link_CatAKU}"')
+rows_CatAKU = run_query(f'SELECT Note, kt2cat, kt2, name, mass FROM "{Link_CatAKU}"')
 
 # Собираем датафреймы
 CatLi = pd.DataFrame(rows_CatLi, dtype=str)
