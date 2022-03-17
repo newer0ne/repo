@@ -67,7 +67,7 @@ st.sidebar.header('Модуль классификации ведомостей 
 
 uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Нужно удалить первые два скрытых столбца. Таблица должна начинаться со столбца **Код KKS**)")
 if uploaded_file is not None:
-    A = pd.read_excel(uploaded_file)#, sheet_name="Sheet1")
+    A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
  #   st.write(A)
  #   st.write(CatAKU)
     final = pd.merge(A, CatAKU, how = 'left', on = ['Note'])
