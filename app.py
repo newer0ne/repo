@@ -33,7 +33,7 @@ def to_excel(df):
 
 # Модуль загрузок ##########################################################################################################################################################
 
-# Загружаем таблицу опор Lisega
+# Загружаем таблицы
 Link_CatLi = st.secrets["CatLi"]
 Link_CatKT2 = st.secrets["CatKT2"]
 Link_CatAKU = st.secrets["CatAKU"]
@@ -111,6 +111,7 @@ st.sidebar.header('Модуль классификации ведомостей 
 
 uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Нужно удалить первые два скрытых столбца. Таблица должна начинаться со столбца **Код KKS**)")
 if uploaded_file is not None:
+    st.write(uploaded_file)
     A = pd.read_excel(uploaded_file, sheet_name="Sheet1")
     final = pd.merge(A, CatAKU, how = 'left', on = ['Note'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на АЭС АККУЮ. ',
