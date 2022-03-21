@@ -91,6 +91,13 @@ st.sidebar.header('Модуль классификации ведомостей 
 
 
 # Смотрим на наши каталоги
+with st.expander("Каталог AKU"):
+    #st.header('Каталог Lisega')
+    show_CatAKU = CatAKU[['Note', 'kt2cat', 'kt2', 'name', 'mass', 'load']]
+    st.write(show_CatAKU)
+    title_AKU = st.text_input('Поле ввода кода AKU для проверки')
+    st.write(show_CatAKU.loc[show_CatAKU['Note'] == title_AKU])
+
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
     show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100']]
