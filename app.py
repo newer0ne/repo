@@ -76,14 +76,14 @@ with st.expander("Каталог AKU"):
 
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
-    show_CatLi = CatLi[['Lisega', 'Li_name', 'Li_diam', 'Li_Fz_100']]
+    show_CatLi = CatLi[['Note', 'Li_name', 'Li_diam', 'Li_Fz_100']]
     st.write(show_CatLi)
     title_Li = st.text_input('Поле ввода кода Lisega для проверки')
     st.write(show_CatLi.loc[show_CatLi['Lisega'] == title_Li])
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
-    show_CatKT2 = CatKT2[['Lisega', 'AKU', 'KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100']]
+    show_CatKT2 = CatKT2[['Note', 'AKU', 'KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100']]
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
     title_KT2_1 = st.text_input('Поле ввода Маркировки KT2 для проверки')
     st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2_1])
@@ -94,7 +94,7 @@ with st.expander("Каталог KT2"):
 #st.header('Таблица соответствия')
 CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
 CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
-tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, how = 'outer', on = ['Lisega'])
+tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, how = 'outer', on = ['Note'])
 
 
 with st.expander("Таблица соответствия ОПС Lisega - KT2"):
@@ -136,9 +136,9 @@ st.sidebar.header('Модуль классификации ведомостей 
 # Создаём кнопку загрузки в сайдбаре для Курской АЭС
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
-    B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Lisega': str})
-    show_CatKT2['Lisega'].astype('str')
-    B = pd.merge(B, show_CatKT2, how = 'left', on = ['Lisega'])
+    B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Note': str})
+    show_CatKT2['Note'].astype('str')
+    B = pd.merge(B, show_CatKT2, how = 'left', on = ['Note'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
 #    B = B.drop(['Li_prod_group', '№ чертежа'], 1)
