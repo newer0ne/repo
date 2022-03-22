@@ -76,6 +76,7 @@ with st.expander("Каталог AKU"):
 
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
+    st.write(CatLi)
     show_CatLi = CatLi[['Note', 'Li_name', 'Li_diam', 'Li_Fz_100']]
     st.write(show_CatLi)
     title_Li = st.text_input('Поле ввода кода Lisega для проверки')
