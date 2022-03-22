@@ -79,7 +79,7 @@ with st.expander("Каталог Lisega"):
     show_CatLi = CatLi[['Note', 'Li_name', 'Li_diam', 'Li_Fz_100']]
     st.write(show_CatLi)
     title_Li = st.text_input('Поле ввода кода Lisega для проверки')
-    st.write(show_CatLi.loc[show_CatLi['Lisega'] == title_Li])
+    st.write(show_CatLi.loc[show_CatLi['Note'] == title_Li])
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
