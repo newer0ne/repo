@@ -83,7 +83,7 @@ with st.expander("Каталог Lisega"):
     
 with st.expander("Каталог KT2"):
     #st.header('Каталог KT2')
-    show_CatKT2 = CatKT2[['Note', 'AKU', 'KT2_mark', 'Обозначение', 'Наименование', 'KT2_diam', 'KT2_mass', 'KT2_Fz_100']]
+    show_CatKT2 = CatKT2[['Note', 'AKU', 'Маркировка_KT2', 'Обозначение_KT2', 'Наименование_KT2', 'KT2_diam', 'Масса_KT2', 'Нагрузка_KT2']]
     st.write(show_CatKT2.sort_values(by=['KT2_mark', 'KT2_diam']))
     title_KT2_1 = st.text_input('Поле ввода Маркировки KT2 для проверки')
     st.write(show_CatKT2.loc[show_CatKT2['KT2_mark'] == title_KT2_1])
@@ -101,7 +101,7 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
     st.write("""В таблице отражено соответствие компонентов ОПС Lisega (2010-2020) и KT2 (EN и RU)
             с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
             """)
-    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.KT2_Fz_100)]
+    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.Нагрузка_KT2)]
 
 
 
@@ -138,6 +138,7 @@ uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой в�
 if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Note': str})
     show_CatKT2['Note'].astype('str')
+    show_CatKT2['Масса_KT2'].astype('float2')
     B = pd.merge(B, show_CatKT2, how = 'left', on = ['Note'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
