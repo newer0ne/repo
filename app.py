@@ -139,6 +139,7 @@ if uploaded_file2 is not None:
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Note': str})
     show_CatKT2['Note'].astype('str')
     show_CatKT2['Масса_KT2'].astype('float16')
+    show_CatKT2['Масса_KT2'].round(1)
     B = pd.merge(B, show_CatKT2, how = 'left', on = ['Note'])
     st.write('Соответствие опор запрашиваемых в ведомости ОПС на Курскую АЭС. ',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
