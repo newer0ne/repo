@@ -9,8 +9,6 @@ import os
 import csv
 from pyxlsb import open_workbook as open_xlsb
 
-#https://stackoverflow.com/questions/63441909/get-the-original-name-of-uploaded-files-in-streamlit
-
 
 conn = connect()                                                        # Create a connection object.
 
@@ -123,7 +121,7 @@ if uploaded_file is not None:
     
     # Скачиваем обработанную ведомость
     df_xlsx = to_excel(final)
-    st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name=uploaded_file.name + " ЗСВ")
+    st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name= "ЗСВ " + uploaded_file.name)
     if st.sidebar.button('📥 Скачать ведомость отправочных марок'):
         st.sidebar.write('Мы тоже хотим чтобы это работало')
         st.balloons()
