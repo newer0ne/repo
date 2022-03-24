@@ -123,7 +123,7 @@ if uploaded_file is not None:
     
     # Скачиваем обработанную ведомость
     df_xlsx = to_excel(final)
-    st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name=uploaded_file.name)
+    st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name=uploaded_file.name + " ЗСВ")
     if st.sidebar.button('📥 Скачать ведомость отправочных марок'):
         st.sidebar.write('Мы тоже хотим чтобы это работало')
         st.balloons()
