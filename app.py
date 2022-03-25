@@ -133,6 +133,7 @@ st.sidebar.header('Модуль классификации ведомостей 
 # Создаём кнопку загрузки в сайдбаре для Курской АЭС
 uploaded_file2 = st.sidebar.file_uploader("Загрузка тестовой ведомости опор для Курской АЭС (Столбец с кодировкой назвать Lisega, кодировка без пробелов)")
 if uploaded_file2 is not None:
+    st.write("Filename: ", uploaded_file.name)
     B = pd.read_excel(uploaded_file2, sheet_name=0, dtype={'Note': str})
     show_CatKT2['Note'].astype('str')
     show_CatKT2['Масса_KT2'].astype('float64')
