@@ -111,7 +111,7 @@ st.sidebar.write("3. Нужно удалить первые два скрыты�
 
 uploaded_file3 = st.sidebar.file_uploader("Область загрузки")
 if uploaded_file3 is not None:
-    st.write("Filename: ", uploaded_file.name)
+    st.write("Filename: ", uploaded_file3.name)
     С = pd.read_excel(uploaded_file3, sheet_name="Sheet1")
     final = pd.merge(С, Cat, how = 'left', on = ['Note'])
     st.write('Соответствие опор запрашиваемых в ведомости.',
