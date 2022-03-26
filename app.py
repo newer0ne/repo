@@ -38,16 +38,19 @@ def to_excel(df):
 Link_CatLi = st.secrets["CatLi"]
 Link_CatKT2 = st.secrets["CatKT2"]
 Link_CatAKU = st.secrets["CatAKU"]
+Link_Cat = st.secrets["Cat"]
 
 # Извлекаем строки SQL запросом по линку
 rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
 rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
 rows_CatAKU = run_query(f'SELECT Note, kt2cat, kt2, name, mass, load FROM "{Link_CatAKU}"')
+rows_Cat = run_query(f'SELECT * FROM "{Link_Cat}"')
 
 # Собираем датафреймы
 CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 CatAKU = pd.DataFrame(rows_CatAKU, dtype=str)
+Cat = pd.DataFrame(rows_Cat, dtype=str)
 
 
 # Отображаемый заголовок страницы ##########################################################################################################################################################
@@ -101,7 +104,26 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
             """)
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.Нагрузка_KT2)]
 
+st.sidebar.header('Модуль классификации ведомостей ОПС') ##################################################################################################
 
+
+uploaded_file = st.sidebar.file_uploader("""1. Загрузка ведомости опор в формате .xls 
+                                            2. Определяемый столбец дожен иметь название Note
+                                            3. Нужно удалить первые два скрытых столбца - таблица должна начинаться со столбца Код KKS""")
+if uploaded_file3 is not None:
+    st.write("Filename: ", uploaded_file.name)
+    С = pd.read_excel(uploaded_file3, sheet_name="Sheet1")
+    final = pd.merge(С, Cat, how = 'left', on = ['Note'])
+    st.write('Соответствие опор запрашиваемых в ведомости.',
+             '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
+    st.write(final)
+    
+    # Скачиваем обработанную ведомость
+    df_xlsx = to_excel(final)
+    st.sidebar.download_button(label='📥 Скачать обработанную ведомость', data=df_xlsx, file_name=uploaded_file3.name)
+    if st.sidebar.button('📥 Скачать ведомость отправочных марок'):
+        st.sidebar.write('Мы тоже хотим чтобы это работало')
+        st.balloons()
 
 
 
