@@ -105,11 +105,11 @@ with st.expander("Таблица соответствия ОПС Lisega - KT2"):
     tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.Нагрузка_KT2)]
 
 st.sidebar.header('Модуль классификации ведомостей ОПС') ##################################################################################################
+st.sidebar.write("1. Загрузка ведомости опор в формате .xls",
+                 "2. Определяемый столбец дожен иметь название Note",
+                 "3. Нужно удалить первые два скрытых столбца - таблица должна начинаться со столбца Код KKS")
 
-
-uploaded_file3 = st.sidebar.file_uploader("1. Загрузка ведомости опор в формате .xls",
-                                          "2. Определяемый столбец дожен иметь название Note",
-                                          "3. Нужно удалить первые два скрытых столбца - таблица должна начинаться со столбца Код KKS")
+uploaded_file3 = st.sidebar.file_uploader("Область загрузки")
 if uploaded_file3 is not None:
     st.write("Filename: ", uploaded_file.name)
     С = pd.read_excel(uploaded_file3, sheet_name="Sheet1")
