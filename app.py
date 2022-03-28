@@ -13,7 +13,7 @@ from pyxlsb import open_workbook as open_xlsb
 conn = connect()                                                        # Create a connection object.
 
 # Perform SQL query on the Google Sheet.
-@st.cache(ttl=300)                                                       # Uses st.cache to only rerun when the query changes or after 10 min.
+@st.cache(ttl=300)                                                       # Uses st.cache to only rerun when the query changes or after 5 min.
 
 def run_query(query):
     rows = conn.execute(query, headers=1)
@@ -91,22 +91,11 @@ with st.expander("Каталог KT2"):
     title_KT2_2 = st.text_input('Поле ввода Обозначения KT2 для проверки')
     st.write(show_CatKT2.loc[show_CatKT2['Обозначение_KT2'] == title_KT2_2])
     
-# Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
-#st.header('Таблица соответствия')
-CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
-CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
-tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, how = 'outer', on = ['Note'])
 
-
-with st.expander("Таблица соответствия ОПС Lisega - KT2"):
-    st.write("""В таблице отражено соответствие компонентов ОПС Lisega (2010-2020) и KT2 (EN и RU)
-            с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
-            """)
-    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.Нагрузка_KT2)]
-
-
-
-
+    
+    
+    
+    
 st.sidebar.header('Модуль классификации ведомостей ОПС') ##################################################################################################
 st.sidebar.write("1. Загрузка ведомости опор осуществляется в формате таблиц excel")
 st.sidebar.write("2. Нужно удалить две верхних строки и первые два скрытых столбца - таблица должна начинаться со столбца KKS Code (в ячейке A1)")
@@ -129,12 +118,29 @@ if uploaded_file3 is not None:
         st.balloons()
 
 
+        
+        
+        
+        
+        
+        
+# Выбрасываем лишние стлобцы из каталогов и склеиваем их по средствам pd.merge
+#st.header('Таблица соответствия')
+#CatLi_Fz100 = CatLi.drop(columns=['Fz_250','Fz_350','Fz_450','Fz_500','Fz_510','Fz_530','Fz_560','Fz_580','Fz_600'])
+#CatKT2_Fz100 = CatKT2.drop(columns=['Fz_250','Fz_350'])
+#tabLiKT2 = pd.merge(CatLi_Fz100, CatKT2_Fz100, how = 'outer', on = ['Note'])
+
+
+#with st.expander("Таблица соответствия ОПС Lisega - KT2"):
+#    st.write("""В таблице отражено соответствие компонентов ОПС Lisega (2010-2020) и KT2 (EN и RU)
+#            с условием, что **нагрузки при 100°С** у элементов KT2 **больше или равны** элементам Lisega
+#            """)
+#    tabLiKT2[(tabLiKT2.Li_Fz_100 <= tabLiKT2.Нагрузка_KT2)]        
+        
+        
+
 
 #st.sidebar.header('Модуль классификации ведомостей ОПС по коду TTT') ##################################################################################################
-
-
-
-
 #uploaded_file = st.sidebar.file_uploader("Загрузка ведомости опор в формате .xls (Нужно удалить первые два скрытых столбца. Таблица должна начинаться со столбца **Код KKS**)")
 #if uploaded_file is not None:
 #    st.write("Filename: ", uploaded_file.name)
