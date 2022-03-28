@@ -38,7 +38,7 @@ def to_excel(df):
 Link_CatLi = st.secrets["CatLi"]
 Link_CatKT2 = st.secrets["CatKT2"]
 Link_CatAKU = st.secrets["CatAKU"]
-Link_Cat = st.secrets["Cat"]
+Link_Cat = st.secrets["Cat2"]
 
 # Извлекаем строки SQL запросом по линку
 rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
