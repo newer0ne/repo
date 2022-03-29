@@ -104,6 +104,7 @@ st.sidebar.write("3. Определяемый столбец дожен имет
 uploaded_file3 = st.sidebar.file_uploader("Область загрузки")
 if uploaded_file3 is not None:
     st.write("Filename: ", uploaded_file3.name)
+    st.write(uploaded_file3)
     С = pd.read_excel(uploaded_file3, dtype = {'Note': str})               #sheet_name = "Лист1" "Sheet1" or
     final = pd.merge(С, Cat, how = 'left', on = ['Note'])
     st.write('Соответствие опор запрашиваемых в ведомости.',
