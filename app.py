@@ -106,6 +106,7 @@ if uploaded_file3 is not None:
     st.write("Filename: ", uploaded_file3.name)
     С = pd.read_excel(uploaded_file3, sheet_name = "Sheet1", dtype = {'Note': str})
     final = pd.merge(С, Cat, how = 'left', on = ['Note'])
+    final = pd.final.round(1)
     st.write('Соответствие опор запрашиваемых в ведомости.',
              '**Развернуть** таблицу на весь экран можно кнопкой, находящейся **в правом верхнем углу** таблицы.')
     st.write(final)
