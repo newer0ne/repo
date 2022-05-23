@@ -52,6 +52,10 @@ CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 CatAKU = pd.DataFrame(rows_CatAKU, dtype=str)
 Cat = pd.DataFrame(rows_Cat, dtype=str)
 
+st.write(CatLi)
+st.write(CatKT2)
+st.write(CatAKU)
+
 
 # Отображаемый заголовок страницы ##########################################################################################################################################################
 
