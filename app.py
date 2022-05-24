@@ -9,7 +9,6 @@ import os
 import csv
 from pyxlsb import open_workbook as open_xlsb
 import webbrowser
-from bokeh.models.widgets import Div
 
 
 conn = connect()                                                        # Create a connection object.
