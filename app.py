@@ -76,10 +76,10 @@ st.markdown(link_gdoc_catkt2, unsafe_allow_html=True)
 link_gtab_catkt2 = '[Каталог исполнений EN](https://docs.google.com/spreadsheets/d/1XXqpF812VpcDxl8vKbdoOdzEPRkntHr78UikhM3QBEE)'
 st.markdown(link_gtab_catkt2, unsafe_allow_html=True)
 
-link_gtab_classdb = '[База данных классификатора KT2](https://docs.google.com/spreadsheets/d/1IuvKFnJiJrreNc7r1Z0raRZ_2Jldb9stRviL29npjPw)'
+link_gtab_classdb = '[База данных классификатора](https://docs.google.com/spreadsheets/d/1IuvKFnJiJrreNc7r1Z0raRZ_2Jldb9stRviL29npjPw)'
 st.markdown(link_gtab_classdb, unsafe_allow_html=True)
 
-link_gtab_plan = '[План разработки ОПС КТ2](https://docs.google.com/spreadsheets/d/11NcLnZtwZqvuYUy11FmEPRPfmbuHfK0R8AmW4WahaaU)'
+link_gtab_plan = '[План разработки ОПС](https://docs.google.com/spreadsheets/d/11NcLnZtwZqvuYUy11FmEPRPfmbuHfK0R8AmW4WahaaU)'
 st.markdown(link_gtab_plan, unsafe_allow_html=True)
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
