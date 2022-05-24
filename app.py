@@ -80,6 +80,10 @@ if st.button('Каталог КТ2'):
     div = Div(text=html)
     st.bokeh_chart(div)
     
+    
+link = '[Каталог КТ2](https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU)'
+st.markdown(link, unsafe_allow_html=True)
+    
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
