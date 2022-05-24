@@ -9,6 +9,7 @@ import os
 import csv
 from pyxlsb import open_workbook as open_xlsb
 import webbrowser
+from bokeh.models.widgets import Div
 
 
 conn = connect()                                                        # Create a connection object.
@@ -68,11 +69,17 @@ st.write('Краткое описание интерфейса: слева - п�
          'После применения необходимой функции, например, проверки базы данных по АЭС - на рабочем поле отображаются результаты.') 
 
 
-
-url = 'https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU'
-if st.button('Каталог КТ2'):
-    webbrowser.open_new_tab(url)
     
+    
+
+import streamlit as st
+
+if st.button('Каталог КТ2'):
+    js = "window.open('https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU')"  # New tab or window
+    js = "window.location.href = 'https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU'"  # Current tab
+    html = '<img src onerror="{}">'.format(js)
+    div = Div(text=html)
+    st.bokeh_chart(div)
     
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
