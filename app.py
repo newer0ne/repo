@@ -67,23 +67,17 @@ st.header('Проект Группы Автоматизации')
 st.write('Краткое описание интерфейса: слева - панель рабочих функций, ниже - рабочее поле. ',
          'После применения необходимой функции, например, проверки базы данных по АЭС - на рабочем поле отображаются результаты.') 
 
+ 
 
     
-    
-
-import streamlit as st
-
-if st.button('Каталог КТ2'):
-    js = "window.open('https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU')"  # New tab or window
-    js = "window.location.href = 'https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU'"  # Current tab
-    html = '<img src onerror="{}">'.format(js)
-    div = Div(text=html)
-    st.bokeh_chart(div)
-    
-    
-link = '[Каталог КТ2](https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU)'
+link_gdoc_catkt2 = '[КАТАЛОГ-V2 EN Rev 1.15](https://docs.google.com/document/d/1kggsuWohlANXEBIN3wv5DjPjplPA8IEOb1mgRBnEUwU)'
 st.markdown(link, unsafe_allow_html=True)
-    
+link_gdoc_catkt2 = '[Каталог исполнений EN](https://docs.google.com/spreadsheets/d/1XXqpF812VpcDxl8vKbdoOdzEPRkntHr78UikhM3QBEE)'
+st.markdown(link, unsafe_allow_html=True)
+link_gdoc_catkt2 = '[База данных классификатора KT2](https://docs.google.com/spreadsheets/d/1IuvKFnJiJrreNc7r1Z0raRZ_2Jldb9stRviL29npjPw)'
+st.markdown(link, unsafe_allow_html=True)
+link_gdoc_catkt2 = '[План разработки ОПС КТ2](https://docs.google.com/spreadsheets/d/11NcLnZtwZqvuYUy11FmEPRPfmbuHfK0R8AmW4WahaaU)'
+st.markdown(link, unsafe_allow_html=True)
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
