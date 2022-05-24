@@ -85,14 +85,17 @@ st.markdown(link_gtab_plan, unsafe_allow_html=True)
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
 
-st.write('Расширения с каталогами')
+st.write('Расширения с каталогами.)
+st.write('В расширениях с каталогами доступна функция поиска по исполнениям.')
 
 with st.expander("Каталог AKU"):
     #st.header('Каталог Lisega')
     show_CatAKU = CatAKU[['Note', 'kt2cat', 'kt2', 'name', 'mass', 'load']]
     st.write(show_CatAKU)
-    title_AKU = st.text_input('Поле ввода кода AKU для проверки')
-    st.write(show_CatAKU.loc[show_CatAKU['Note'] == title_AKU])
+    title_AKU_EN = st.text_input('Поле ввода кода AKU для проверки')
+    st.write(show_CatAKU.loc[show_CatAKU['Note'] == title_AKU_EN])
+    title_EN_AKU = st.text_input('Поле ввода кода EN для проверки')
+    st.write(show_CatAKU.loc[show_CatAKU['kt2cat'] == title_EN_AKU])
 
 with st.expander("Каталог Lisega"):
     #st.header('Каталог Lisega')
