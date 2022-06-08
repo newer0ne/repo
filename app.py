@@ -80,6 +80,9 @@ with st.expander("Документация отдела"):
 
     link_gtab_plan = '[План разработки ОПС](https://docs.google.com/spreadsheets/d/11NcLnZtwZqvuYUy11FmEPRPfmbuHfK0R8AmW4WahaaU)'
     st.markdown(link_gtab_plan, unsafe_allow_html=True)
+    
+    
+    with st.expander("Каталоги в формате PDF"):
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
