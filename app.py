@@ -84,7 +84,7 @@ with st.expander("Документация отдела"):
     
 with st.expander("Каталоги в формате PDF"):
     
-    link_pdf_ttt = '[Опоры и подвески трубопроводов для статических и динамических нагрузок. Типовые технические требования. 01.PA1.0.0.TM.TT.NSN082 Ревизия В03](https://docs.google.com/spreadsheets/d/11NcLnZtwZqvuYUy11FmEPRPfmbuHfK0R8AmW4WahaaU)'
+    link_pdf_ttt = '[Опоры и подвески трубопроводов для статических и динамических нагрузок. Типовые технические требования. 01.PA1.0.0.TM.TT.NSN082 Ревизия В03](https://drive.google.com/file/d/1ACf4viy5IXRDdU7Ok3Di2A-LVmqmJD54/view?usp=sharing)'
     st.markdown(link_pdf_ttt, unsafe_allow_html=True)
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
