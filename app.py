@@ -89,6 +89,9 @@ with st.expander("Каталоги в формате PDF"):
     
     link_pdf_L8 = '[Энергомонтажпроект. Л8-508.000 + Л8-524.000](https://drive.google.com/file/d/1f6oJaNkER0JqVu2lQtnxg7_wHrR0RLv9/view?usp=sharing)'
     st.markdown(link_pdf_L8, unsafe_allow_html=True)
+    
+    link_pdf_Lisega2010ru = '[Lisega. Стандартные опоры 2010. ОСТ](https://drive.google.com/file/d/14MpB56BfkJSchpWZllVL_vMHY2OZStYM/view?usp=sharing)'
+    st.markdown(link_pdf_Lisega2010ru, unsafe_allow_html=True)
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
