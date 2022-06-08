@@ -94,7 +94,7 @@ with st.expander("Каталоги в формате PDF"):
     st.markdown(link_pdf_Lisega2010ru, unsafe_allow_html=True)
     
     link_pdf_Lisega2020iso = '[Lisega. Стандартные опоры 2020. ISO](https://drive.google.com/file/d/1X5zwYRjoh9qRU1o8PJdHALdGpGiIfYck/view?usp=sharing)'
-    st.markdown(link_pdf_Lisega2010ru, unsafe_allow_html=True)    
+    st.markdown(link_pdf_Lisega2020iso, unsafe_allow_html=True)    
 
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
