@@ -9,6 +9,8 @@ import os
 import csv
 from pyxlsb import open_workbook as open_xlsb
 import webbrowser
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
 
 
 conn = connect()                                                        # Create a connection object.
