@@ -10,13 +10,13 @@ import csv
 from pyxlsb import open_workbook as open_xlsb
 import webbrowser
 
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-import os
+#from pydrive.auth import GoogleAuth
+#from pydrive.drive import GoogleDrive
+#import os
 
-g_login = GoogleAuth()
+#g_login = GoogleAuth()
 #g_login.LocalWebserverAuth()
-drive = GoogleDrive(g_login)
+#drive = GoogleDrive(g_login)
 
 
 conn = connect()                                                        # Create a connection object.
