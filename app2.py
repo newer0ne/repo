@@ -44,19 +44,19 @@ def to_excel(df):
 # Модуль загрузок ##########################################################################################################################################################
 
 # Загружаем таблицы
-Link_CatLi = st.secrets["CatLi"]
+#Link_CatLi = st.secrets["CatLi"]
 Link_CatKT2 = st.secrets["CatKT2"]
 Link_CatAKU = st.secrets["CatAKU"]
 Link_Cat = st.secrets["Cat2"]
 
 # Извлекаем строки SQL запросом по линку
-rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
+#rows_CatLi = run_query(f'SELECT * FROM "{Link_CatLi}"')
 rows_CatKT2 = run_query(f'SELECT * FROM "{Link_CatKT2}"')
 rows_CatAKU = run_query(f'SELECT Note, kt2cat, kt2, name, mass, load FROM "{Link_CatAKU}"')
 rows_Cat = run_query(f'SELECT * FROM "{Link_Cat}"')
 
 # Собираем датафреймы
-CatLi = pd.DataFrame(rows_CatLi, dtype=str)
+#CatLi = pd.DataFrame(rows_CatLi, dtype=str)
 CatKT2 = pd.DataFrame(rows_CatKT2, dtype=str)
 CatAKU = pd.DataFrame(rows_CatAKU, dtype=str)
 Cat = pd.DataFrame(rows_Cat, dtype=str)
