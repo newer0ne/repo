@@ -95,9 +95,6 @@ with st.expander("Каталоги в формате PDF"):
     link_pdf_ttt = '[Московский проектный институт. Типовые технические требования. 01.PA1.0.0.TM.TT.NSN082 Ревизия В03](https://drive.google.com/file/d/1ACf4viy5IXRDdU7Ok3Di2A-LVmqmJD54/view?usp=sharing)'
     st.markdown(link_pdf_ttt, unsafe_allow_html=True)
     
-    link_pdf_L8 = '[Энергомонтажпроект. Л8-508.000 + Л8-524.000](https://drive.google.com/file/d/1f6oJaNkER0JqVu2lQtnxg7_wHrR0RLv9/view?usp=sharing)'
-    st.markdown(link_pdf_L8, unsafe_allow_html=True)
-    
     link_pdf_Lisega2010iso = '[Lisega. Стандартные опоры 2010. ISO](https://drive.google.com/file/d/1MpFCm99Qvr5wzru7MvFrWaWHL-AlciHZ/view?usp=sharing)'
     st.markdown(link_pdf_Lisega2010iso, unsafe_allow_html=True)
     
@@ -105,8 +102,17 @@ with st.expander("Каталоги в формате PDF"):
     st.markdown(link_pdf_Lisega2010ost, unsafe_allow_html=True)
     
     link_pdf_Lisega2020iso = '[Lisega. Стандартные опоры 2020. ISO](https://drive.google.com/file/d/1X5zwYRjoh9qRU1o8PJdHALdGpGiIfYck/view?usp=sharing)'
-    st.markdown(link_pdf_Lisega2020iso, unsafe_allow_html=True)    
-
+    st.markdown(link_pdf_Lisega2020iso, unsafe_allow_html=True)
+    
+with st.expander("ОСТ и ГОСТ"):
+    
+    link_pdf_L8 = '[Энергомонтажпроект. Л8-508.000 + Л8-524.000](https://drive.google.com/file/d/1f6oJaNkER0JqVu2lQtnxg7_wHrR0RLv9/view?usp=sharing)'
+    st.markdown(link_pdf_L8, unsafe_allow_html=True)
+    
+    link_pdf_ost24_125_127 = '[ОСТ 24.125.127 - Блоки хомутовые для вертикальных трубопроводов](https://drive.google.com/file/d/1XkZHXuB5MNkD5fYvYqE0IX2CinaV4NIQ/view?usp=sharing)'
+    st.markdown(link_pdf_ost24_125_127, unsafe_allow_html=True)
+    
+ 
 # Смотрим на наши каталоги ##########################################################################################################################################################
 
 
