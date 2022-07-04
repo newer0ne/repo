@@ -92,8 +92,11 @@ with st.expander("Документация отдела"):
     
 with st.expander("Каталоги в формате PDF"):
     
-    link_pdf_ttt = '[Московский проектный институт. Типовые технические требования. 01.PA1.0.0.TM.TT.NSN082 Ревизия В03](https://drive.google.com/file/d/1ACf4viy5IXRDdU7Ok3Di2A-LVmqmJD54/view?usp=sharing)'
-    st.markdown(link_pdf_ttt, unsafe_allow_html=True)
+    link_pdf_ttt3 = '[Московский проектный институт. Типовые технические требования. 01.PA1.0.0.TM.TT.NSN082 Ревизия В03](https://drive.google.com/file/d/1ACf4viy5IXRDdU7Ok3Di2A-LVmqmJD54/view?usp=sharing)'
+    st.markdown(link_pdf_ttt3, unsafe_allow_html=True)
+        
+    link_pdf_ttt4 = '[Московский проектный институт. Типовые технические требования. 01.PA1.0.0.TM.TT.NSN082 Ревизия В04](https://drive.google.com/file/d/1bm4inRO5oVe9uuA7pg813He4vAxAllhM/view?usp=sharing)'
+    st.markdown(link_pdf_ttt4, unsafe_allow_html=True)
     
     link_pdf_Lisega2010iso = '[Lisega. Стандартные опоры 2010. ISO](https://drive.google.com/file/d/1MpFCm99Qvr5wzru7MvFrWaWHL-AlciHZ/view?usp=sharing)'
     st.markdown(link_pdf_Lisega2010iso, unsafe_allow_html=True)
